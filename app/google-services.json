@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "767698323794",
+    "firebase_url": "https://opticare-59cab.firebaseio.com",
+    "project_id": "opticare-59cab",
+    "storage_bucket": "opticare-59cab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:767698323794:android:8836d58872714228",
+        "android_client_info": {
+          "package_name": "com.opensource.eye.opticare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "767698323794-4jdu061bjrmgt2s131pn5p6cskpfk9le.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6ttlzAyqp_1YP8qwoxU15XsI6pY26p7c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
