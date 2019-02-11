@@ -1,4 +1,4 @@
-package com.opensource.Models;
+package Models;
 
 
 public class User {
