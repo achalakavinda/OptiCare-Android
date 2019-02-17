@@ -9,7 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HomeActivity"></activity>
+        <activity
+            android:name=".TutorialActivity"
+            android:label="@string/title_activity_tutorial"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".AcuityTestActivity"
+            android:label="@string/title_activity_acuity_test"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AcuityDemoActivity"
+            android:label="@string/title_activity_acuity_demo"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".HomeActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
