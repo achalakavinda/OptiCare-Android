@@ -1,12 +1,12 @@
 package com.opensource.eye.opticare.Models;
 
-public class ModelTutorialItem {
+public class TutorialItemModel {
 
     private int image;
     private String titile;
     private String desc;
 
-    public ModelTutorialItem(int image, String titile, String desc) {
+    public TutorialItemModel(int image, String titile, String desc) {
         this.image = image;
         this.titile = titile;
         this.desc = desc;

@@ -7,18 +7,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.opensource.eye.opticare.Models.ModelTutorialItem;
+import com.opensource.eye.opticare.Models.TutorialItemModel;
 import com.opensource.eye.opticare.R;
 
 import java.util.List;
 
-public class AdapterTutorialItems extends PagerAdapter {
+public class TutorialItemsAdapter extends PagerAdapter {
 
-    private List<ModelTutorialItem> models;
+    private List<TutorialItemModel> models;
     private LayoutInflater layoutInflater;
     private Context context;
 
-    public AdapterTutorialItems(List<ModelTutorialItem> models, Context context){
+    public TutorialItemsAdapter(List<TutorialItemModel> models, Context context){
         this.models = models;
         this.context = context;
     }

@@ -54,7 +54,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         linearLayoutNearBy.setOnClickListener(this);
         linearLayoutReminder.setOnClickListener(this);
         linearLayoutProfile.setOnClickListener(this);
-
     }
 
 
@@ -64,6 +63,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()){
             case R.id.linearLayoutAcuity:
                 intent = new Intent(this,TutorialActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.linearLayoutReminder:
+                intent = new Intent(this,PatientReminderActivity.class);
                 startActivity(intent);
                 break;
         }

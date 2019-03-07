@@ -16,4 +16,7 @@
     <color name="color4">#59717c</color>
     <color name="color5">#19AA8B</color>
     <color name="color6">#23A7D8</color>
+
+    <!-- alpha colors -->
+    <color name="colorFontPanelAlpha">#d9ffffff</color>
 </resources>

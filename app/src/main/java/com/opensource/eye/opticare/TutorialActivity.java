@@ -4,20 +4,21 @@ import android.animation.ArgbEvaluator;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.opensource.eye.opticare.Adapters.AdapterTutorialItems;
-import com.opensource.eye.opticare.Models.ModelTutorialItem;
+import com.opensource.eye.opticare.Adapters.TutorialItemsAdapter;
+import com.opensource.eye.opticare.Models.TutorialItemModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TutorialActivity extends AppCompatActivity {
+public class TutorialActivity extends AppCompatActivity implements View .OnClickListener{
 
     ViewPager viewPager;
-    AdapterTutorialItems adapter;
-    List<ModelTutorialItem> modelTutorialItems;
+    TutorialItemsAdapter adapter;
+    List<TutorialItemModel> tutorialItemModels;
     Integer[]  colours = null;
     ArgbEvaluator argbEvaluator = new ArgbEvaluator();
 
@@ -30,15 +31,15 @@ public class TutorialActivity extends AppCompatActivity {
 
         window = getWindow();
 
-        modelTutorialItems = new ArrayList<>();
-        modelTutorialItems.add(new ModelTutorialItem(R.drawable.brochure,"Brochure","Brocher"));
-        modelTutorialItems.add(new ModelTutorialItem(R.drawable.brochure,"Brochure X","Brocher sad asd dsa "));
-        modelTutorialItems.add(new ModelTutorialItem(R.drawable.brochure,"Brochure X","Brocher sad asd dsa "));
-        modelTutorialItems.add(new ModelTutorialItem(R.drawable.brochure,"Brochure X","Brocher sad asd dsa "));
-        modelTutorialItems.add(new ModelTutorialItem(R.drawable.brochure,"Brochure X","Brocher sad asd dsa "));
-        modelTutorialItems.add(new ModelTutorialItem(R.drawable.brochure,"Brochure X","Brocher sad asd dsa "));
+        tutorialItemModels = new ArrayList<>();
+        tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"Brochure","Brocher"));
+        tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"Brochure X","Brocher sad asd dsa "));
+        tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"Brochure X","Brocher sad asd dsa "));
+        tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"Brochure X","Brocher sad asd dsa "));
+        tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"Brochure X","Brocher sad asd dsa "));
+        tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"Brochure X","Brocher sad asd dsa "));
 
-        adapter = new AdapterTutorialItems(modelTutorialItems,this);
+        adapter = new TutorialItemsAdapter(tutorialItemModels,this);
         viewPager = findViewById(R.id.viePager);
         viewPager.setAdapter(adapter);
         viewPager.setPadding(130,0,130,0);
@@ -98,8 +99,18 @@ public class TutorialActivity extends AppCompatActivity {
 
             }
         });
-
-
     }
 
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.buttonStartTest:
+
+                break;
+                default:
+
+                    break;
+        }
+    }
 }
