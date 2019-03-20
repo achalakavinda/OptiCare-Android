@@ -1,14 +1,18 @@
 package com.opensource.eye.opticare;
 
 import android.animation.ArgbEvaluator;
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 
 import com.opensource.eye.opticare.Adapters.TutorialItemsAdapter;
+import com.opensource.eye.opticare.Configs.Config;
 import com.opensource.eye.opticare.Models.TutorialItemModel;
 
 import java.util.ArrayList;
@@ -21,24 +25,53 @@ public class TutorialActivity extends AppCompatActivity implements View .OnClick
     List<TutorialItemModel> tutorialItemModels;
     Integer[]  colours = null;
     ArgbEvaluator argbEvaluator = new ArgbEvaluator();
+    Button buttonStartTest;
 
+    int ViewPageInt = 0;
     Window window = null;
+    Bundle bundle = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorial);
-
+        buttonStartTest = findViewById(R.id.buttonStartTest);
+        buttonStartTest.setOnClickListener(this);
         window = getWindow();
+        bundle = getIntent().getExtras();
+        ActivitySelector(bundle.getInt("TYPE_CONST"));
+    }
 
+
+    public void ActivitySelector(int ActityInteger){
+        ViewPageInt = ActityInteger;
         tutorialItemModels = new ArrayList<>();
-        tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"Brochure","Brocher"));
-        tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"Brochure X","Brocher sad asd dsa "));
-        tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"Brochure X","Brocher sad asd dsa "));
-        tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"Brochure X","Brocher sad asd dsa "));
-        tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"Brochure X","Brocher sad asd dsa "));
-        tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"Brochure X","Brocher sad asd dsa "));
+        switch (ActityInteger){
+            case Config.MYOPIA_ACTIVTY:
 
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"MYOPIA_ACTIVTY","Brocher"));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"MYOPIA_ACTIVTY X","Brocher sad asd dsa "));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"MYOPIA_ACTIVTY X","Brocher sad asd dsa "));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"MYOPIA_ACTIVTY X","Brocher sad asd dsa "));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"MYOPIA_ACTIVTY X","Brocher sad asd dsa "));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"MYOPIA_ACTIVTY X","Brocher sad asd dsa "));
+                Render();
+                break;
+            case Config.HYPEROPIA_ACTIVTY:
+
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"HYPEROPIA_ACTIVTY","Brocher"));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"HYPEROPIA_ACTIVTY X","Brocher sad asd dsa "));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"HYPEROPIA_ACTIVTY X","Brocher sad asd dsa "));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"HYPEROPIA_ACTIVTY X","Brocher sad asd dsa "));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"HYPEROPIA_ACTIVTY X","Brocher sad asd dsa "));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"HYPEROPIA_ACTIVTY X","Brocher sad asd dsa "));
+                Render();
+                break;
+        }
+    }
+
+    public void Render()
+    {
         adapter = new TutorialItemsAdapter(tutorialItemModels,this);
         viewPager = findViewById(R.id.viePager);
         viewPager.setAdapter(adapter);
@@ -104,10 +137,25 @@ public class TutorialActivity extends AppCompatActivity implements View .OnClick
 
     @Override
     public void onClick(View v) {
+        Intent intent ;
         switch (v.getId()){
             case R.id.buttonStartTest:
 
+                switch (ViewPageInt){
+
+                    case Config.MYOPIA_ACTIVTY:
+                        intent = new Intent(this,TesMyopiaActivity.class);
+                        startActivity(intent);
+                        break;
+
+                        case Config.HYPEROPIA_ACTIVTY:
+                            intent = new Intent(this,TesHyperpiaActivity.class);
+                            startActivity(intent);
+                            break;
+                }
+
                 break;
+
                 default:
 
                     break;

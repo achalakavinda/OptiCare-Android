@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 
 import com.nightonke.boommenu.BoomButtons.SimpleCircleButton;
 import com.nightonke.boommenu.BoomMenuButton;
+import com.opensource.eye.opticare.Configs.Config;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -60,9 +61,25 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
 
+        Bundle bundle = new Bundle();
+
         switch (v.getId()){
             case R.id.linearLayoutAcuity:
                 intent = new Intent(this,TutorialActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.linearLayoutMyopia://short sightedness
+                intent = new Intent(this,TutorialActivity.class);
+                bundle.putInt("TYPE_CONST",Config.MYOPIA_ACTIVTY);
+                intent.putExtras(bundle);
+                startActivity(intent);
+                break;
+
+            case R.id.linearLayoutHyperopia://far sightedness
+                intent = new Intent(this,TutorialActivity.class);
+                bundle.putInt("TYPE_CONST",Config.HYPEROPIA_ACTIVTY);
+                intent.putExtras(bundle);
                 startActivity(intent);
                 break;
 

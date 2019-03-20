@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PatientReminderActivity"></activity>
+        <activity android:name=".TesHyperpiaActivity"></activity>
+        <activity android:name=".TesMyopiaActivity" />
+        <activity android:name=".PatientReminderActivity" />
         <activity android:name=".PatientAcuityTestActivity" />
         <activity
             android:name=".TutorialActivity"

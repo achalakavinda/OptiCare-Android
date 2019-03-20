@@ -17,6 +17,40 @@
     <color name="color5">#19AA8B</color>
     <color name="color6">#23A7D8</color>
 
+
+    <!-- cs colours -->
+    <color name="colorBackPanel">#f4f5f9</color>
+    <color name="colorFontPanel">#ffff</color>
+
+    <!-- banner colors -->
+    <color name="colorGeneralBanner">#003366</color>
+    <!-- side menu -->
+    <color name="colorSideMenu">#2574c2</color>
+
+
+    <!-- custom -->
+    <color name="backgroundmain">#f4f5f9</color>
+    <color name="Button_and_field_Colour">#013244</color>
+    <color name="Button_Delete">#e74c3c</color>
+    <color name="display_txt_colour">#7697A2</color>
+
+    <!-- Button Colors -->
+    <color name="colorBtnPrimary">#003366</color>
+    <color name="colorFacebookBtn">#495fb1</color>
+    <color name="colorYellowBtn">#fcb012</color>
+    <color name="colorLightBlueBtn">#2574c2</color>
+
+    <!-- Text Color -->
+    <color name="colorTextPrimary">#1e272e</color>
+    <!-- Card -->
+    <!-- card colors -->
+    <color name="card_background">#ffffff</color>
+    <color name="card_shadow_1">#d4d4d4</color>
+    <color name="card_shadow_2">#dddddd</color>
+    <color name="card_detailing">#eee</color>
     <!-- alpha colors -->
     <color name="colorFontPanelAlpha">#d9ffffff</color>
+
+    <!-- animation bg colours -->
+    <color name="color_eye_animation_bg">#5cd1e3</color>
 </resources>
