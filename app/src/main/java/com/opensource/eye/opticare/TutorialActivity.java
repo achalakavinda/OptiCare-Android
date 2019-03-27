@@ -67,6 +67,11 @@ public class TutorialActivity extends AppCompatActivity implements View .OnClick
                 tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"HYPEROPIA_ACTIVTY X","Brocher sad asd dsa "));
                 Render();
                 break;
+
+            case Config.ASTIGMATISM_ACTIVTY:
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"Asty_ACTIVTY","Brocher"));
+                Render();
+                break;
         }
     }
 
