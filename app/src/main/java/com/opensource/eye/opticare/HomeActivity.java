@@ -14,7 +14,6 @@ import com.opensource.eye.opticare.Configs.Config;
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Intent intent;
-    private BoomMenuButton bmb;
     private LinearLayout linearLayoutAcuity;
     private LinearLayout linearLayoutAstigmatism;
     private LinearLayout linearLayoutMypopia;
@@ -29,16 +28,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        bmb = (BoomMenuButton) findViewById(R.id.bmb);
-        for (int i = 0; i < bmb.getPiecePlaceEnum().pieceNumber(); i++) {
-            SimpleCircleButton.Builder builder = new SimpleCircleButton.Builder()
-                    .normalImageRes(R.drawable.person);
-            bmb.addBuilder(builder);
-            bmb.setRippleEffect(true);
-            bmb.setNormalColor(getResources().getColor(R.color.gradStop));
-        }
-
-        linearLayoutAcuity = findViewById(R.id.linearLayoutAcuity);
         linearLayoutAstigmatism = findViewById(R.id.linearLayoutAstigmatism);
         linearLayoutMypopia = findViewById(R.id.linearLayoutMyopia);
         linearLayoutHyperopia = findViewById(R.id.linearLayoutHyperopia);
@@ -47,7 +36,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         linearLayoutReminder = findViewById(R.id.linearLayoutReminder);
         linearLayoutProfile = findViewById(R.id.linearLayoutProfile);
 
-        linearLayoutAcuity.setOnClickListener(this);
         linearLayoutAstigmatism.setOnClickListener(this);
         linearLayoutMypopia.setOnClickListener(this);
         linearLayoutHyperopia.setOnClickListener(this);
@@ -64,11 +52,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         Bundle bundle = new Bundle();
 
         switch (v.getId()){
-            case R.id.linearLayoutAcuity:
-                intent = new Intent(this,TutorialActivity.class);
-                startActivity(intent);
-                break;
-
             case R.id.linearLayoutMyopia://short sightedness
                 intent = new Intent(this,TutorialActivity.class);
                 bundle.putInt("TYPE_CONST",Config.MYOPIA_ACTIVTY);

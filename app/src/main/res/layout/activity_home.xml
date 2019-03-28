@@ -53,6 +53,7 @@
                 android:columnOrderPreserved="false"
                 android:paddingBottom="100dp">
 
+
                 <android.support.v7.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -62,7 +63,7 @@
                     app:cardCornerRadius="12dp"
                     android:layout_margin="12dp">
                     <LinearLayout
-                        android:id="@+id/linearLayoutAcuity"
+                        android:id="@+id/linearLayoutProfile"
                         android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -72,15 +73,13 @@
                         <ImageView
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:src="@drawable/acuity_icon"/>
+                            android:src="@drawable/ic"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="18sp"
                             android:layout_marginTop="12dp"
-                            android:text="Acuity"
+                            android:text="Profile"
                             android:textColor="@color/gradStop"/>
-
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
 
@@ -266,49 +265,10 @@
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
 
-                <android.support.v7.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_rowWeight="1"
-                    app:cardElevation="6dp"
-                    app:cardCornerRadius="12dp"
-                    android:layout_margin="12dp">
-                    <LinearLayout
-                        android:id="@+id/linearLayoutProfile"
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="16dp"
-                        android:gravity="center">
 
-                        <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:src="@drawable/ic"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="12dp"
-                            android:text="Profile"
-                            android:textColor="@color/gradStop"/>
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
 
             </GridLayout>
         </LinearLayout>
-
     </ScrollView>
-
-    <com.nightonke.boommenu.BoomMenuButton
-        android:id="@+id/bmb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:bmb_buttonEnum="simpleCircle"
-        app:bmb_piecePlaceEnum="piecePlace_dot_9_1"
-        app:bmb_buttonPlaceEnum="buttonPlace_sc_9_1"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:padding="20dp"/>
 
 </RelativeLayout>

@@ -6,7 +6,10 @@ import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.opensource.eye.opticare.Models.TestHyperpiaItemModel;
 import com.opensource.eye.opticare.Models.TutorialItemModel;
 import com.opensource.eye.opticare.R;
 
@@ -14,11 +17,11 @@ import java.util.List;
 
 public class TestHyperpiaItemAdapter extends PagerAdapter {
 
-    private List<TutorialItemModel> models;
+    private List<TestHyperpiaItemModel> models;
     private LayoutInflater layoutInflater;
     private Context context;
 
-    public TestHyperpiaItemAdapter(List<TutorialItemModel> models, Context context){
+    public TestHyperpiaItemAdapter(List<TestHyperpiaItemModel> models, Context context){
         this.models = models;
         this.context = context;
     }
@@ -39,6 +42,16 @@ public class TestHyperpiaItemAdapter extends PagerAdapter {
         layoutInflater = LayoutInflater.from(context);
         View view = layoutInflater.inflate(R.layout.test_hyperpia_item,container,false);
         container.addView(view,0);
+
+        ImageView imageView;
+        TextView textViewTitle, textViewDesc;
+
+        textViewTitle = view.findViewById(R.id.title);
+        textViewDesc = view.findViewById(R.id.desc);
+
+        textViewTitle.setText(models.get(postion).getTitile());
+        textViewDesc.setText(models.get(postion).getDesc());
+
         return view;
     }
 

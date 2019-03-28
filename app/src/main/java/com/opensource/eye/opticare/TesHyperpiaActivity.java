@@ -7,8 +7,11 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
+import com.opensource.eye.opticare.Adapters.TestHyperpiaItemAdapter;
 import com.opensource.eye.opticare.Adapters.TutorialItemsAdapter;
+import com.opensource.eye.opticare.Models.TestHyperpiaItemModel;
 import com.opensource.eye.opticare.Models.TutorialItemModel;
 
 import java.util.ArrayList;
@@ -18,11 +21,18 @@ public class TesHyperpiaActivity extends AppCompatActivity {
 
     RelativeLayout relativeLayoutATH;
     ViewPager viewPager;
-    TutorialItemsAdapter adapter;
-    List<TutorialItemModel> tutorialItemModels;
+    TestHyperpiaItemAdapter adapter;
+    List<TestHyperpiaItemModel> testHyperpiaItemModels;
     Integer[]  colours = null;
     ArgbEvaluator argbEvaluator = new ArgbEvaluator();
     Window window = null;
+
+    //main text views
+    private TextView questionText;
+    private TextView countText;
+    private TextView distanceText;
+
+    private int count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,22 +42,25 @@ public class TesHyperpiaActivity extends AppCompatActivity {
         relativeLayoutATH = findViewById(R.id.ATH);
         window = getWindow();
 
-        tutorialItemModels = new ArrayList<>();
-        tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"MYOPIA_ACTIVTY","Brocher"));
-        tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"MYOPIA_ACTIVTY X","Brocher sad asd dsa "));
-        tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"MYOPIA_ACTIVTY X","Brocher sad asd dsa "));
-        tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"MYOPIA_ACTIVTY X","Brocher sad asd dsa "));
-        tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"MYOPIA_ACTIVTY X","Brocher sad asd dsa "));
-        tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"MYOPIA_ACTIVTY X","Brocher sad asd dsa "));
+        questionText = findViewById(R.id.questionText);
+        countText = findViewById(R.id.countText);
+        distanceText = findViewById(R.id.distanceText);
+        distanceText.setText("20 Feet");
 
-
+        testHyperpiaItemModels = new ArrayList<>();
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel(R.drawable.brochure,"Read and Enter","Please Read the first letter."));
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel(R.drawable.brochure,"Read and Enter","Please Read the first letter."));
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel(R.drawable.brochure,"Read and Enter","Please Read the first letter."));
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel(R.drawable.brochure,"Read and Enter","Please Read the first letter."));
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel(R.drawable.brochure,"Read and Enter","Please Read the first letter."));
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel(R.drawable.brochure,"Read and Enter","Please Read the first letter."));
         Render();
     }
 
 
     public void Render()
     {
-        adapter = new TutorialItemsAdapter(tutorialItemModels,this);
+        adapter = new TestHyperpiaItemAdapter(testHyperpiaItemModels,this);
         viewPager = findViewById(R.id.viePager);
         viewPager.setAdapter(adapter);
         viewPager.setPadding(130,0,130,0);
@@ -75,6 +88,8 @@ public class TesHyperpiaActivity extends AppCompatActivity {
 
                 // add FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS flag to the window
                 window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+
+                countText.setText("Count\t:\t"+String.valueOf(position));
 
                 if(position < (adapter.getCount()-1) && position < (colours.length-1)){
                     relativeLayoutATH.setBackgroundColor(
