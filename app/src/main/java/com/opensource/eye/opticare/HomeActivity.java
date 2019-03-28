@@ -83,10 +83,17 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
 
+            case R.id.linearLayoutProfile:
+                intent = new Intent(this, ProfileActivity.class);
+                startActivity(intent);
+                break;
+
             case R.id.linearLayoutReminder:
                 intent = new Intent(this,PatientReminderActivity.class);
                 startActivity(intent);
                 break;
+
+
         }
 
     }
