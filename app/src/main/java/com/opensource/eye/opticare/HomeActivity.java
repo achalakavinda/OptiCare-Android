@@ -70,6 +70,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 intent = new Intent(this,PatientReminderActivity.class);
                 startActivity(intent);
                 break;
+
+            case R.id.linearLayoutNearBy:
+                intent = new Intent(this,MapActivity.class);
+                startActivity(intent);
+                break;
         }
 
     }
