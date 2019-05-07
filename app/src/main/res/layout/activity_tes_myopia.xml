@@ -52,6 +52,29 @@
                     android:clipToPadding="false">
                 </android.support.v4.view.ViewPager>
             </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:gravity="center_horizontal">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/btn_bg"
+                android:fontFamily="sans-serif-medium"
+                android:paddingLeft="70dp"
+                android:paddingRight="70dp"
+                android:text="Submit"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:id="@+id/Submit"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="50dp"/>
+
+        </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

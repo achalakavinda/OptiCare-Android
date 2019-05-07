@@ -9,7 +9,7 @@ import com.android.volley.toolbox.StringRequest;
 public class HttpRequest {
 
     private RequestQueue queue = null;
-    private String url ="http://192.168.1.2:3000/api";
+    private String url ="http://192.168.1.5:3000/api";
 
     public HttpRequest(){}
 

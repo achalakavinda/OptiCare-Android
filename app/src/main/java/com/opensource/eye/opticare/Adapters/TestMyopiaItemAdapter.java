@@ -6,6 +6,7 @@ import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -45,16 +46,15 @@ public class TestMyopiaItemAdapter extends PagerAdapter {
 
         ImageView imageView;
         TextView textViewTitle, textViewDesc;
+        EditText inputField;
 
         textViewTitle = view.findViewById(R.id.title);
         textViewDesc = view.findViewById(R.id.desc);
         imageView = view.findViewById(R.id.image);
+        inputField = view.findViewById(R.id.inputField);
 
 
-        ViewGroup.LayoutParams layoutParams = imageView.getLayoutParams();
-        layoutParams.width = models.get(postion).getImageWeight();
-        layoutParams.height = models.get(postion).getImageHeight();
-        imageView.setLayoutParams(layoutParams);
+       imageView.setImageDrawable(models.get(postion).getImage());
 
         textViewTitle.setText(models.get(postion).getTitile());
         textViewDesc.setText(models.get(postion).getDesc());

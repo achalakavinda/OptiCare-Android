@@ -1,15 +1,23 @@
 package com.opensource.eye.opticare.Models;
 
+import android.graphics.drawable.Drawable;
+
 public class TestMyopiaItemModel {
 
-    private int image;
+    private Drawable image;
     private String titile;
     private String desc;
     private int imageHeight;
     private int imageWeight;
 
+    private String constant;
+    private String answer;
+    private Boolean aBoolean;
 
-    public TestMyopiaItemModel(int image, String titile, String desc,int imageHeight, int imageWeight) {
+
+    public TestMyopiaItemModel(String constant, String answer ,Drawable image, String titile, String desc,int imageHeight, int imageWeight) {
+        this.constant = constant;
+        this.answer = answer;
         this.image = image;
         this.titile = titile;
         this.desc = desc;
@@ -17,11 +25,19 @@ public class TestMyopiaItemModel {
         this.imageWeight = imageWeight;
     }
 
-    public int getImage() {
+    public TestMyopiaItemModel(String constant, String answer ,Drawable image, String titile, String desc) {
+        this.constant = constant;
+        this.answer = answer;
+        this.image = image;
+        this.titile = titile;
+        this.desc = desc;
+    }
+
+    public Drawable getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(Drawable image) {
         this.image = image;
     }
 
@@ -56,4 +72,16 @@ public class TestMyopiaItemModel {
     public void setImageWeight(int imageWeight) {
         this.imageWeight = imageWeight;
     }
+
+    public String getConstant() { return constant; }
+
+    public void setConstant(String constant) { this.constant = constant; }
+
+    public String getAnswer() { return answer; }
+
+    public void setAnswer(String answer) { this.answer = answer; }
+
+    public Boolean getaBoolean() { return aBoolean; }
+    public void setaBoolean(Boolean aBoolean) { this.aBoolean = aBoolean; }
+
 }
