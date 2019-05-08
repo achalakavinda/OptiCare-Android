@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.opensource.eye.opticare.Models.TestHyperpiaItemModel;
 import com.opensource.eye.opticare.Models.TestMyopiaItemModel;
 import com.opensource.eye.opticare.R;
 
@@ -22,44 +21,48 @@ public class TestMyopiaItemAdapter extends PagerAdapter {
     private LayoutInflater layoutInflater;
     private Context context;
 
-    public TestMyopiaItemAdapter(List<TestMyopiaItemModel> models, Context context){
+    public TestMyopiaItemAdapter(List<TestMyopiaItemModel> models, Context context)
+    {
         this.models = models;
         this.context = context;
     }
 
     @Override
-    public int getCount() {
+    public int getCount()
+    {
         return models.size();
     }
 
     @Override
-    public boolean isViewFromObject(@NonNull View view, @NonNull Object o) {
+    public boolean isViewFromObject(@NonNull View view, @NonNull Object o)
+    {
         return view.equals(o);
     }
 
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int postion){
+
         layoutInflater = LayoutInflater.from(context);
         View view = layoutInflater.inflate(R.layout.test_myopia_item,container,false);
         container.addView(view,0);
 
         ImageView imageView;
-        TextView textViewTitle, textViewDesc;
+        TextView ANSWER, Constant;
         EditText inputField;
 
-        textViewTitle = view.findViewById(R.id.title);
-        textViewDesc = view.findViewById(R.id.desc);
+        ANSWER = view.findViewById(R.id.ANSWER);
+        Constant = view.findViewById(R.id.CONSTANT);
         imageView = view.findViewById(R.id.image);
         inputField = view.findViewById(R.id.inputField);
 
+        imageView.setImageDrawable(models.get(postion).getImage());
 
-       imageView.setImageDrawable(models.get(postion).getImage());
-
-        textViewTitle.setText(models.get(postion).getTitile());
-        textViewDesc.setText(models.get(postion).getDesc());
+        ANSWER .setText(models.get(postion).getAnswer());
+        Constant.setText(models.get(postion).getConstant());
 
         return view;
+
     }
 
     @Override

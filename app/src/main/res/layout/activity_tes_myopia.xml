@@ -73,7 +73,6 @@
                 android:id="@+id/Submit"
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="50dp"/>
-
         </LinearLayout>
         </LinearLayout>
     </ScrollView>
