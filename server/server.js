@@ -22,6 +22,14 @@ app.post('/api/login',function(req,res){
     res.send(x);
 });
 
+
+
+app.post('/api/test/myopia',function(req,res){
+    var x = req.body;
+    console.log(x);
+    res.send(x);
+});
+
 app.get('/api/user/:id/optician/locations',function (req,res){
 
     var x = {

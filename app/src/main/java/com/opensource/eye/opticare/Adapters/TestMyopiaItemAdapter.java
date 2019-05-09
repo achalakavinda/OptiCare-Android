@@ -56,6 +56,8 @@ public class TestMyopiaItemAdapter extends PagerAdapter {
         imageView = view.findViewById(R.id.image);
         inputField = view.findViewById(R.id.inputField);
 
+        inputField.setText(models.get(postion).getAnswer().toString().toUpperCase());
+
         imageView.setImageDrawable(models.get(postion).getImage());
 
         ANSWER .setText(models.get(postion).getAnswer());

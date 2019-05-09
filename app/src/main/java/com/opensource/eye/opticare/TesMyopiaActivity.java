@@ -12,14 +12,25 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.opensource.eye.opticare.Adapters.TestMyopiaItemAdapter;
 import com.opensource.eye.opticare.Models.TestHyperpiaItemModel;
 import com.opensource.eye.opticare.Models.TestMyopiaItemModel;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import Services.HttpRequest;
 
 public class TesMyopiaActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -207,6 +218,13 @@ public class TesMyopiaActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View v) {
 
+        CreateJSonArray();
+    }
+
+    private void CreateJSonArray(){
+        JSONObject request = new JSONObject();
+        JsonArray jsonElements = new JsonArray();
+
         for ( TestMyopiaItemModel testMyopiaItemModel : testMyopiaItemModels)
         {
             System.out.println(String.valueOf(testMyopiaItemModels.indexOf(testMyopiaItemModel)+1)
@@ -214,7 +232,43 @@ public class TesMyopiaActivity extends AppCompatActivity implements View.OnClick
                     + " Answer : "+ testMyopiaItemModel.getAnswer()
                     + " Result : "+ testMyopiaItemModel.getaBoolean().toString()
             );
+            ResultObjects = new JsonObject();
+            ResultObjects.addProperty("patient_id",1);
+            ResultObjects.addProperty("optician_id",3);
+            ResultObjects.addProperty("Constant",testMyopiaItemModel.getConstant());
+            ResultObjects.addProperty("Answer",testMyopiaItemModel.getAnswer());
+            ResultObjects.addProperty("Result",testMyopiaItemModel.getaBoolean().toString());
+            jsonElements.add(ResultObjects);
         }
+
+        try
+        {
+            request.put("test", jsonElements);
+
+            RequestQueue queue = Volley.newRequestQueue(this);
+            JsonObjectRequest jobReq = new JsonObjectRequest(Request.Method.POST, new HttpRequest().getUri()+"/test/myopia", request,
+                    new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject jsonObject) {
+
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError volleyError) {
+                            System.out.println(volleyError.getMessage());
+                        }
+                    });
+
+            queue.add(jobReq);
+
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+
+
     }
 
     private void readAllPages(){
