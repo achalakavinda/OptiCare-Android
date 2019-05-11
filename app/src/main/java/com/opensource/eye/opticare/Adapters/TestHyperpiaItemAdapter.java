@@ -6,6 +6,7 @@ import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -43,14 +44,19 @@ public class TestHyperpiaItemAdapter extends PagerAdapter {
         View view = layoutInflater.inflate(R.layout.test_hyperpia_item,container,false);
         container.addView(view,0);
 
-        ImageView imageView;
-        TextView textViewTitle, textViewDesc;
+        TextView ANSWER, Constant, Title;
+        EditText inputField;
 
-        textViewTitle = view.findViewById(R.id.title);
-        textViewDesc = view.findViewById(R.id.desc);
+        Title = view.findViewById(R.id.Title);
+        ANSWER = view.findViewById(R.id.ANSWER);
+        Constant = view.findViewById(R.id.CONSTANT);
+        inputField = view.findViewById(R.id.inputField);
 
-        textViewTitle.setText(models.get(postion).getTitile());
-        textViewDesc.setText(models.get(postion).getDesc());
+        Title.setText(models.get(postion).getTtile());
+        inputField.setText(models.get(postion).getAnswer().toUpperCase());
+        ANSWER .setText(models.get(postion).getAnswer());
+        Constant.setText(models.get(postion).getConstant());
+
 
         return view;
     }

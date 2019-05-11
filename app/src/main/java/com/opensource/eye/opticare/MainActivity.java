@@ -58,8 +58,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         relativeLayout_1 = (RelativeLayout) findViewById(R.id.relativeLayout_1);
         buttonLogin = (Button) findViewById(R.id.buttonLogin);
         buttonLogin.setOnClickListener(this);
-
         handler.postDelayed(runnable, 2000); //2000 is the timeout for the splash
+
     }
 
     @Override
