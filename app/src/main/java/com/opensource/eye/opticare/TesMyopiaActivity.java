@@ -1,6 +1,7 @@
 package com.opensource.eye.opticare;
 
 import android.animation.ArgbEvaluator;
+import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,10 +20,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.opensource.eye.opticare.Adapters.TestMyopiaItemAdapter;
-import com.opensource.eye.opticare.Models.TestHyperpiaItemModel;
 import com.opensource.eye.opticare.Models.TestMyopiaItemModel;
 
 import org.json.JSONObject;
@@ -70,7 +69,7 @@ public class TesMyopiaActivity extends AppCompatActivity implements View.OnClick
         distanceText.setText("");
 
         buttonSubmit = findViewById(R.id.Submit);
-        buttonSubmit.setVisibility(View.INVISIBLE);
+//        buttonSubmit.setVisibility(View.INVISIBLE);
         buttonSubmit.setOnClickListener(this);
 
         //initiate array list
@@ -218,7 +217,15 @@ public class TesMyopiaActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View v) {
 
-        CreateJSonArray();
+        switch (v.getId()){
+
+            case R.id.Submit:
+                CreateJSonArray();
+                break;
+                default:
+                    System.out.println("do nothing");
+
+        }
     }
 
     private void CreateJSonArray(){
@@ -230,27 +237,28 @@ public class TesMyopiaActivity extends AppCompatActivity implements View.OnClick
             System.out.println(String.valueOf(testMyopiaItemModels.indexOf(testMyopiaItemModel)+1)
                     + " Constant : "+ testMyopiaItemModel.getConstant()
                     + " Answer : "+ testMyopiaItemModel.getAnswer()
-                    + " Result : "+ testMyopiaItemModel.getaBoolean().toString()
+                    + " Result : "+ testMyopiaItemModel.getaBoolean()
             );
             ResultObjects = new JsonObject();
             ResultObjects.addProperty("patient_id",1);
             ResultObjects.addProperty("optician_id",3);
             ResultObjects.addProperty("Constant",testMyopiaItemModel.getConstant());
             ResultObjects.addProperty("Answer",testMyopiaItemModel.getAnswer());
-            ResultObjects.addProperty("Result",testMyopiaItemModel.getaBoolean().toString());
+            ResultObjects.addProperty("Result",testMyopiaItemModel.getaBoolean());
             jsonElements.add(ResultObjects);
         }
 
         try
         {
-            request.put("test", jsonElements);
+            request.put("Data", jsonElements);
 
             RequestQueue queue = Volley.newRequestQueue(this);
             JsonObjectRequest jobReq = new JsonObjectRequest(Request.Method.POST, new HttpRequest().getUri()+"/test/myopia", request,
                     new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject jsonObject) {
-
+                            Intent intent = new Intent(getApplicationContext(),ScoreActivity.class);
+                            startActivity(intent);
                         }
                     },
                     new Response.ErrorListener() {

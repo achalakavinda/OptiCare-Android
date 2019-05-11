@@ -48,12 +48,53 @@ public class TesHyperpiaActivity extends AppCompatActivity {
         distanceText.setText("20 Feet");
 
         testHyperpiaItemModels = new ArrayList<>();
-        testHyperpiaItemModels.add(new TestHyperpiaItemModel(R.drawable.brochure,"Read and Enter","Please Read the first letter."));
-        testHyperpiaItemModels.add(new TestHyperpiaItemModel(R.drawable.brochure,"Read and Enter","Please Read the first letter."));
-        testHyperpiaItemModels.add(new TestHyperpiaItemModel(R.drawable.brochure,"Read and Enter","Please Read the first letter."));
-        testHyperpiaItemModels.add(new TestHyperpiaItemModel(R.drawable.brochure,"Read and Enter","Please Read the first letter."));
-        testHyperpiaItemModels.add(new TestHyperpiaItemModel(R.drawable.brochure,"Read and Enter","Please Read the first letter."));
-        testHyperpiaItemModels.add(new TestHyperpiaItemModel(R.drawable.brochure,"Read and Enter","Please Read the first letter."));
+
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel("sn_1_1","E","Test title"));
+
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel("sn_2_1","F","Test Description"));
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel("sn_2_2","P","Test Description"));
+
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel("sn_3_1","T","Test Description"));
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel("sn_3_2","0","Test Description"));
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel("sn_3_3","Z","Test Description"));
+
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel("sn_4_1","L","Test Description"));
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel("sn_4_2","P","Test Description"));
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel("sn_4_3","E","Test Description"));
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel("sn_4_4","D","Test Description"));
+
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel("sn_5_1","P","Test Description"));
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel("sn_5_2","E","Test Description"));
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel("sn_5_3","C","Test Description"));
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel("sn_5_4","F","Test Description"));
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel("sn_5_5","D","Test Description"));
+
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel("sn_6_1","E","Test Description"));
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel("sn_6_2","D","Test Description"));
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel("sn_6_3","F","Test Description"));
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel("sn_6_4","E","Test Description"));
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel("sn_6_5","Z","Test Description"));
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel("sn_6_6","P","Test Description"));
+
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel("sn_7_1","F","Test Description"));
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel("sn_7_2","E","Test Description"));
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel("sn_7_3","L","Test Description"));
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel("sn_7_4","O","Test Description"));
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel("sn_7_5","P","Test Description"));
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel("sn_7_6","Z","Test Description"));
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel("sn_7_7","D","Test Description"));
+
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel("sn_8_1","D","Test Description"));
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel("sn_8_2","E","Test Description"));
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel("sn_8_3","F","Test Description"));
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel("sn_8_4","P","Test Description"));
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel("sn_8_5","O","Test Description"));
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel("sn_8_6","T","Test Description"));;
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel("sn_8_7","E","Test Description"));
+        testHyperpiaItemModels.add(new TestHyperpiaItemModel("sn_8_8","C","Test Description"));
+
+
+
         Render();
     }
 

@@ -28,19 +28,19 @@
                 android:layout_marginBottom="10dp"/>
             <TextView
                 android:id="@+id/ANSWER"
+                android:visibility="invisible"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/image"
                 android:layout_marginLeft="16dp"
                 android:textSize="16sp"/>
             <TextView
                 android:id="@+id/CONSTANT"
+                android:visibility="invisible"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:layout_below="@+id/title"
                 android:drawablePadding="10dp"
                 android:ellipsize="end"/>
             <EditText
