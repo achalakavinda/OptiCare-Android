@@ -9,7 +9,7 @@ import com.android.volley.toolbox.StringRequest;
 public class HttpRequest {
 
     private RequestQueue queue = null;
-    private String url ="http://looker.lk/api";
+    private String url ="http://opticare.9xlabs.com/api";
 
     public HttpRequest(){}
 
