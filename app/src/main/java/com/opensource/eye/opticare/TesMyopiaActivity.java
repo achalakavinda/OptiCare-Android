@@ -52,12 +52,12 @@ public class TesMyopiaActivity extends AppCompatActivity implements View.OnClick
     private Button buttonSubmit;
 
     //array objects
-    private JsonArray postArray;
     private JsonObject ResultObjects;
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tes_myopia);
 
@@ -70,17 +70,92 @@ public class TesMyopiaActivity extends AppCompatActivity implements View.OnClick
         distanceText.setText("");
 
         buttonSubmit = findViewById(R.id.Submit);
-//        buttonSubmit.setVisibility(View.INVISIBLE);
         buttonSubmit.setOnClickListener(this);
 
-        //initiate array list
-        testMyopiaItemModels =  new ArrayList<>();
-        postArray = new JsonArray();
-        ResultObjects = new JsonObject();
 
-        ResultObjects.addProperty("const","SN_0_0");
-        ResultObjects.addProperty("Answer","E");
-        ResultObjects.addProperty("Answered",true);
+        testMyopiaItemModels =  new ArrayList<>();
+
+        initiateMyopiaTestObjects();
+        Render();
+    }
+
+    /**
+     * Onclick Listener for the all view click events
+     * @param v
+     */
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()){
+
+            case R.id.Submit:
+                CreateJSonArray();
+                break;
+                default:
+                    System.out.println("do nothing");
+
+        }
+    }
+
+    /**
+     * Create a Json array and post into backend with all result
+     */
+    private void CreateJSonArray(){
+        JSONObject request = new JSONObject();
+        JsonArray jsonElements = new JsonArray();
+
+        for ( TestMyopiaItemModel testMyopiaItemModel : testMyopiaItemModels)
+        {
+            System.out.println(String.valueOf(testMyopiaItemModels.indexOf(testMyopiaItemModel)+1)
+                    + " Constant : "+ testMyopiaItemModel.getConstant()
+                    + " Answer : "+ testMyopiaItemModel.getAnswer()
+                    + " Result : "+ testMyopiaItemModel.getaBoolean()
+            );
+
+            ResultObjects = new JsonObject();
+            ResultObjects.addProperty("patient_id",1);
+            ResultObjects.addProperty("optician_id",3);
+            ResultObjects.addProperty("Constant",testMyopiaItemModel.getConstant());
+            ResultObjects.addProperty("Answer",testMyopiaItemModel.getAnswer());
+            ResultObjects.addProperty("Result",testMyopiaItemModel.getaBoolean());
+            ResultObjects.addProperty("Point",1);
+            jsonElements.add(ResultObjects);
+        }
+
+        try
+        {
+            request.put("Data", jsonElements);
+            RequestQueue queue = Volley.newRequestQueue(this);
+            JsonObjectRequest jobReq = new JsonObjectRequest(Request.Method.POST, new HttpRequest().getUri()+"/test/myopia", request,
+                    new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject jsonObject) {
+                            System.out.println(jsonObject.toString());
+                            Intent intent = new Intent(getApplicationContext(),ScoreActivity.class);
+                            startActivity(intent);
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError volleyError) {
+                            System.out.println(volleyError.getMessage());
+                        }
+                    });
+
+            queue.add(jobReq);
+
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+
+    }
+
+    /**
+     * Add test objects into the Object array list
+     */
+    private void initiateMyopiaTestObjects(){
 
         testMyopiaItemModels.add(new TestMyopiaItemModel("sn_1_1","E",this.getResources().getDrawable(R.drawable.sn_1_1),"Test title","Test Description"));
 
@@ -126,11 +201,12 @@ public class TesMyopiaActivity extends AppCompatActivity implements View.OnClick
         testMyopiaItemModels.add(new TestMyopiaItemModel("sn_8_7","E",this.getResources().getDrawable(R.drawable.sn_8_7),"Test title","Test Description"));
         testMyopiaItemModels.add(new TestMyopiaItemModel("sn_8_8","C",this.getResources().getDrawable(R.drawable.sn_8_8),"Test title","Test Description"));
 
-        Render();
     }
 
-
-    public void Render()
+    /**
+     * Render test card into the recycle view
+     */
+    private void Render()
     {
         adapter = new TestMyopiaItemAdapter(testMyopiaItemModels,this);
         viewPager = findViewById(R.id.viePager);
@@ -152,7 +228,7 @@ public class TesMyopiaActivity extends AppCompatActivity implements View.OnClick
         colours = colors_temp;
 
 
-       viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 // clear FLAG_TRANSLUCENT_STATUS flag:
@@ -215,72 +291,12 @@ public class TesMyopiaActivity extends AppCompatActivity implements View.OnClick
         });
     }
 
-    @Override
-    public void onClick(View v) {
 
-        switch (v.getId()){
-
-            case R.id.Submit:
-                CreateJSonArray();
-                break;
-                default:
-                    System.out.println("do nothing");
-
-        }
-    }
-
-    private void CreateJSonArray(){
-        JSONObject request = new JSONObject();
-        JsonArray jsonElements = new JsonArray();
-
-        for ( TestMyopiaItemModel testMyopiaItemModel : testMyopiaItemModels)
-        {
-            System.out.println(String.valueOf(testMyopiaItemModels.indexOf(testMyopiaItemModel)+1)
-                    + " Constant : "+ testMyopiaItemModel.getConstant()
-                    + " Answer : "+ testMyopiaItemModel.getAnswer()
-                    + " Result : "+ testMyopiaItemModel.getaBoolean()
-            );
-            ResultObjects = new JsonObject();
-            ResultObjects.addProperty("patient_id",1);
-            ResultObjects.addProperty("optician_id",3);
-            ResultObjects.addProperty("Constant",testMyopiaItemModel.getConstant());
-            ResultObjects.addProperty("Answer",testMyopiaItemModel.getAnswer());
-            ResultObjects.addProperty("Result",testMyopiaItemModel.getaBoolean());
-            jsonElements.add(ResultObjects);
-        }
-
-        try
-        {
-            request.put("Data", jsonElements);
-
-            RequestQueue queue = Volley.newRequestQueue(this);
-            JsonObjectRequest jobReq = new JsonObjectRequest(Request.Method.POST, new HttpRequest().getUri()+"/test/myopia", request,
-                    new Response.Listener<JSONObject>() {
-                        @Override
-                        public void onResponse(JSONObject jsonObject) {
-                            Intent intent = new Intent(getApplicationContext(),ScoreActivity.class);
-                            startActivity(intent);
-                        }
-                    },
-                    new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError volleyError) {
-                            System.out.println(volleyError.getMessage());
-                        }
-                    });
-
-            queue.add(jobReq);
-
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-        }
-
-
-    }
-
-    private void readAllPages(){
+    /**
+     * Read All List Object and update with results
+     */
+    private void readAllPages()
+    {
         for (int i = 0; i < viewPager.getChildCount(); i++)
         {
             View v = viewPager.getChildAt(i);
@@ -289,7 +305,6 @@ public class TesMyopiaActivity extends AppCompatActivity implements View.OnClick
             TextView Constant = (TextView) v.findViewById(R.id.CONSTANT);
             TextView Answer = (TextView) v.findViewById(R.id.ANSWER);
 
-            String stringConstant = (String) Constant.getText();
             String stringAnwer = (String) Answer.getText();
 
             System.out.println( e.getText()+" = "+ stringAnwer );
@@ -311,11 +326,9 @@ public class TesMyopiaActivity extends AppCompatActivity implements View.OnClick
                 }
             }
 
-
-
-
         }
     }
+
 
 
 }
