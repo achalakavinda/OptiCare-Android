@@ -6,8 +6,8 @@
         android:topLeftRadius="5dp"
         android:topRightRadius="5dp" />
     <size
-        android:height="6dp" />
+        android:height="1dp" />
     <solid
-        android:color="#daa520" />
+        android:color="#333" />
 
 </shape>

@@ -3,45 +3,119 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorFontPanelAlpha"
+    android:background="@color/backgroundmain"
     android:layout_marginBottom="2dp"
     android:layout_marginTop="2dp"
     android:id="@+id/EventItemCard"
-    android:orientation="horizontal">
-
-    <ImageView
-        android:layout_width="0dp"
-        android:layout_weight="0.1"
-        android:layout_height="50dp"
-        android:src="@drawable/ic"/>
+    android:orientation="vertical"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp">
 
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_weight="0.8"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date"
+                android:textSize="18sp"/>
+            <TextView
+                android:id="@+id/textDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingTop="10dp"
+                android:textColor="@color/starblue"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Type"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/textType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingTop="10dp"
+                android:textColor="@color/starblue"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status"
+                android:textSize="18sp"/>
+            <TextView
+                android:id="@+id/textStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingTop="10dp"
+                android:textColor="@color/starblue"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/line"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="5dp">
 
         <TextView
-            android:id="@+id/time"
+            android:id="@+id/textOptician"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Time 18:10:00"
-            android:paddingBottom="10dp"/>
+            android:text="Optician Name: Optician "
+            android:paddingBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="18sp"/>
 
         <TextView
-            android:id="@+id/description"
+            android:id="@+id/textNote"
+            android:layout_marginLeft="10dp"
+            android:paddingBottom="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="12sp"
             android:text="You can use layout_weight properties. If you want to take 70% of parent width you must set child layout_width property value 0dp, like android:layout_width="/>
 
     </LinearLayout>
-
-    <ImageButton
-        android:id="@+id/deleteBtn"
-        android:src="@drawable/ic_delete_forever_black_24dp"
-        android:layout_width="0dp"
-        android:layout_weight="0.1"
-        android:layout_height="wrap_content"/>
 
 </LinearLayout>

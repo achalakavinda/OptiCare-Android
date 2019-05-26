@@ -2,30 +2,119 @@ package com.opensource.eye.opticare.Models;
 
 public class ReminderPatientModel {
 
-    public String Id;
-    public String date;
-    public String time;
-    public String description;
-    public String Raw_Year;
-    public String Raw_Month;
-    public String Raw_Day;
-    public String Raw_Hour;
-    public String Raw_Min;
+    private String id;
+    private String optician_id;
+    private String optician_name;
+    private String patient_name;
+    private String patient_id;
+    private String date;
+    private String type;
+    private Boolean isMobile;
+    private String status;
+    private String note;
+    private Boolean show;
 
-    public ReminderPatientModel() {
-        // Default constructor required for calls to DataSnapshot.getValue(User.class)
-    }
 
-    public ReminderPatientModel(String Id,String date, String time, String description ,String Raw_Year,String Raw_Month,String Raw_Day,String Raw_Hour, String Raw_Min) {
-        this.Id = Id;
+    public ReminderPatientModel(String id, String optician_id, String optician_name, String patient_name, String patient_id, String date, String type, Boolean isMobile, String status, String note, Boolean show) {
+        this.id = id;
+        this.optician_id = optician_id;
+        this.optician_name = optician_name;
+        this.patient_name = patient_name;
+        this.patient_id = patient_id;
         this.date = date;
-        this.time = time;
-        this.description = description;
-
-        this.Raw_Year = Raw_Year;
-        this.Raw_Month = Raw_Month;
-        this.Raw_Day = Raw_Day;
-        this.Raw_Hour = Raw_Hour;
-        this.Raw_Min = Raw_Min;
+        this.type = type;
+        this.isMobile = isMobile;
+        this.status = status;
+        this.note = note;
+        this.show = show;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getOptician_id() {
+        return optician_id;
+    }
+
+    public void setOptician_id(String optician_id) {
+        this.optician_id = optician_id;
+    }
+
+    public String getOptician_name() {
+        return optician_name;
+    }
+
+    public void setOptician_name(String optician_name) {
+        this.optician_name = optician_name;
+    }
+
+    public String getPatient_name() {
+        return patient_name;
+    }
+
+    public void setPatient_name(String patient_name) {
+        this.patient_name = patient_name;
+    }
+
+    public String getPatient_id() {
+        return patient_id;
+    }
+
+    public void setPatient_id(String patient_id) {
+        this.patient_id = patient_id;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Boolean getMobile() {
+        return isMobile;
+    }
+
+    public void setMobile(Boolean mobile) {
+        isMobile = mobile;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public Boolean getShow() {
+        return show;
+    }
+
+    public void setShow(Boolean show) {
+        this.show = show;
+    }
+
 }
