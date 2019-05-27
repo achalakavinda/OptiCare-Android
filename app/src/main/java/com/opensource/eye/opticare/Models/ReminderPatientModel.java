@@ -9,13 +9,13 @@ public class ReminderPatientModel {
     private String patient_id;
     private String date;
     private String type;
-    private Boolean isMobile;
+    private String isMobile;
     private String status;
     private String note;
     private Boolean show;
 
 
-    public ReminderPatientModel(String id, String optician_id, String optician_name, String patient_name, String patient_id, String date, String type, Boolean isMobile, String status, String note, Boolean show) {
+    public ReminderPatientModel(String id, String optician_id, String optician_name, String patient_name, String patient_id, String date, String type, String isMobile, String status, String note, Boolean show) {
         this.id = id;
         this.optician_id = optician_id;
         this.optician_name = optician_name;
@@ -85,11 +85,11 @@ public class ReminderPatientModel {
         this.type = type;
     }
 
-    public Boolean getMobile() {
+    public String getMobile() {
         return isMobile;
     }
 
-    public void setMobile(Boolean mobile) {
+    public void setMobile(String mobile) {
         isMobile = mobile;
     }
 
