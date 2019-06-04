@@ -12,13 +12,16 @@ public class TestMyopiaItemModel {
     private String answer;
     private Boolean aBoolean;
 
-    public TestMyopiaItemModel(String constant, String answer ,Drawable image, String titile, String desc)
+    private int MaxFail;
+
+    public TestMyopiaItemModel(String constant,int MaxFail, String answer ,Drawable image, String titile, String desc)
     {
         this.constant = constant;
         this.answer = answer;
         this.image = image;
         this.titile = titile;
         this.desc = desc;
+        this.MaxFail = MaxFail;
     }
 
     public Drawable getImage()
@@ -80,5 +83,9 @@ public class TestMyopiaItemModel {
     {
         this.aBoolean = aBoolean;
     }
+
+    public int getMaxFail() { return MaxFail; }
+
+    public void setMaxFail(int maxFail) { MaxFail = maxFail; }
 
 }
