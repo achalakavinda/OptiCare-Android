@@ -1,7 +1,5 @@
 package com.opensource.eye.opticare.Models;
 
-import android.graphics.drawable.Drawable;
-
 public class TestHyperpiaItemModel {
 
     private String title;

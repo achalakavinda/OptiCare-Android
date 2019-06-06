@@ -18,7 +18,7 @@ app.get('/',function(req,res){
 
 app.post('/api/login',function(req,res){
     var x = {id:1,username:'test user',success:true , req:req.body};
-    console.log(x);
+    
     res.send(x);
 });
 
@@ -26,7 +26,12 @@ app.post('/api/login',function(req,res){
 
 app.post('/api/test/myopia',function(req,res){
     var x = req.body;
-    console.log(x);
+
+    let data = JSON.parse(x['Data']);
+    data.forEach(element => {
+        console.log(element);
+    });
+
     res.send(x);
 });
 

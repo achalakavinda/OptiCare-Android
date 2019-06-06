@@ -28,6 +28,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import Services.HttpRequest;
 
@@ -51,12 +52,12 @@ public class TesMyopiaActivity extends AppCompatActivity implements View.OnClick
     private Button buttonSubmit;
 
     //array objects
-    private JsonArray postArray;
     private JsonObject ResultObjects;
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tes_myopia);
 
@@ -69,67 +70,143 @@ public class TesMyopiaActivity extends AppCompatActivity implements View.OnClick
         distanceText.setText("");
 
         buttonSubmit = findViewById(R.id.Submit);
-//        buttonSubmit.setVisibility(View.INVISIBLE);
         buttonSubmit.setOnClickListener(this);
 
-        //initiate array list
+
         testMyopiaItemModels =  new ArrayList<>();
-        postArray = new JsonArray();
-        ResultObjects = new JsonObject();
 
-        ResultObjects.addProperty("const","SN_0_0");
-        ResultObjects.addProperty("Answer","E");
-        ResultObjects.addProperty("Answered",true);
-
-        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_1_1","E",this.getResources().getDrawable(R.drawable.sn_1_1),"Test title","Test Description"));
-
-        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_2_1","F",this.getResources().getDrawable(R.drawable.sn_2_1),"Test title","Test Description"));
-        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_2_2","P",this.getResources().getDrawable(R.drawable.sn_2_2),"Test title","Test Description"));
-
-        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_3_1","T",this.getResources().getDrawable(R.drawable.sn_3_1),"Test title","Test Description"));
-        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_3_2","0",this.getResources().getDrawable(R.drawable.sn_3_2),"Test title","Test Description"));
-        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_3_3","Z",this.getResources().getDrawable(R.drawable.sn_3_3),"Test title","Test Description"));
-
-        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_4_1","L",this.getResources().getDrawable(R.drawable.sn_4_1),"Test title","Test Description"));
-        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_4_2","P",this.getResources().getDrawable(R.drawable.sn_4_2),"Test title","Test Description"));
-        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_4_3","E",this.getResources().getDrawable(R.drawable.sn_4_3),"Test title","Test Description"));
-        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_4_4","D",this.getResources().getDrawable(R.drawable.sn_4_4),"Test title","Test Description"));
-
-        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_5_1","P",this.getResources().getDrawable(R.drawable.sn_5_1),"Test title","Test Description"));
-        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_5_2","E",this.getResources().getDrawable(R.drawable.sn_5_2),"Test title","Test Description"));
-        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_5_3","C",this.getResources().getDrawable(R.drawable.sn_5_3),"Test title","Test Description"));
-        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_5_4","F",this.getResources().getDrawable(R.drawable.sn_5_4),"Test title","Test Description"));
-        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_5_5","D",this.getResources().getDrawable(R.drawable.sn_5_5),"Test title","Test Description"));
-
-        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_6_1","E",this.getResources().getDrawable(R.drawable.sn_6_1),"Test title","Test Description"));
-        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_6_2","D",this.getResources().getDrawable(R.drawable.sn_6_2),"Test title","Test Description"));
-        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_6_3","F",this.getResources().getDrawable(R.drawable.sn_6_3),"Test title","Test Description"));
-        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_6_4","E",this.getResources().getDrawable(R.drawable.sn_6_4),"Test title","Test Description"));
-        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_6_5","Z",this.getResources().getDrawable(R.drawable.sn_6_5),"Test title","Test Description"));
-        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_6_6","P",this.getResources().getDrawable(R.drawable.sn_6_6),"Test title","Test Description"));
-
-        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_7_1","F",this.getResources().getDrawable(R.drawable.sn_7_1),"Test title","Test Description"));
-        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_7_2","E",this.getResources().getDrawable(R.drawable.sn_7_2),"Test title","Test Description"));
-        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_7_3","L",this.getResources().getDrawable(R.drawable.sn_7_3),"Test title","Test Description"));
-        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_7_4","O",this.getResources().getDrawable(R.drawable.sn_7_4),"Test title","Test Description"));
-        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_7_5","P",this.getResources().getDrawable(R.drawable.sn_7_5),"Test title","Test Description"));
-        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_7_6","Z",this.getResources().getDrawable(R.drawable.sn_7_6),"Test title","Test Description"));
-        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_7_7","D",this.getResources().getDrawable(R.drawable.sn_7_7),"Test title","Test Description"));
-
-        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_8_1","D",this.getResources().getDrawable(R.drawable.sn_8_1),"Test title","Test Description"));
-        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_8_2","E",this.getResources().getDrawable(R.drawable.sn_8_2),"Test title","Test Description"));
-        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_8_3","F",this.getResources().getDrawable(R.drawable.sn_8_3),"Test title","Test Description"));
-        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_8_4","P",this.getResources().getDrawable(R.drawable.sn_8_4),"Test title","Test Description"));
-        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_8_5","O",this.getResources().getDrawable(R.drawable.sn_8_5),"Test title","Test Description"));
-        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_8_6","T",this.getResources().getDrawable(R.drawable.sn_8_6),"Test title","Test Description"));
-        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_8_7","E",this.getResources().getDrawable(R.drawable.sn_8_7),"Test title","Test Description"));
-        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_8_8","C",this.getResources().getDrawable(R.drawable.sn_8_8),"Test title","Test Description"));
-
+        initiateMyopiaTestObjects();
         Render();
     }
 
+    /**
+     * Onclick Listener for the all view click events
+     * @param v
+     */
+    @Override
+    public void onClick(View v) {
 
-    public void Render()
+        switch (v.getId()){
+
+            case R.id.Submit:
+                CreateJSonArray();
+                break;
+                default:
+                    System.out.println("do nothing");
+
+        }
+    }
+
+    /**
+     * Create a Json array and post into backend with all result
+     */
+    private void CreateJSonArray(){
+        JSONObject request = new JSONObject();
+        JsonArray jsonElements = new JsonArray();
+
+        for ( TestMyopiaItemModel testMyopiaItemModel : testMyopiaItemModels)
+        {
+            System.out.println(String.valueOf(testMyopiaItemModels.indexOf(testMyopiaItemModel)+1)
+                    + " Constant : "+ testMyopiaItemModel.getConstant()
+                    + " Answer : "+ testMyopiaItemModel.getAnswer()
+                    + " Result : "+ testMyopiaItemModel.getaBoolean()
+            );
+
+            ResultObjects = new JsonObject();
+            ResultObjects.addProperty("patient_id",1);
+            ResultObjects.addProperty("optician_id",3);
+            ResultObjects.addProperty("Constant",testMyopiaItemModel.getConstant());
+            ResultObjects.addProperty("Answer",testMyopiaItemModel.getAnswer());
+            ResultObjects.addProperty("Result",testMyopiaItemModel.getaBoolean());
+            ResultObjects.addProperty("Point",1);
+            jsonElements.add(ResultObjects);
+        }
+
+        try
+        {
+            request.put("Data", jsonElements);
+            RequestQueue queue = Volley.newRequestQueue(this);
+            JsonObjectRequest jobReq = new JsonObjectRequest(Request.Method.POST, new HttpRequest().getUri()+"/test/myopia", request,
+                    new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject jsonObject) {
+                            System.out.println(jsonObject.toString());
+                            Intent intent = new Intent(getApplicationContext(),ScoreActivity.class);
+                            startActivity(intent);
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError volleyError) {
+                            System.out.println(volleyError.getMessage());
+                        }
+                    });
+
+            queue.add(jobReq);
+
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+
+    }
+
+    /**
+     * Add test objects into the Object array list
+     */
+    private void initiateMyopiaTestObjects(){
+
+        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_1_1",0,"E",this.getResources().getDrawable(R.drawable.sn_1_1),"Test title","Test Description"));
+
+        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_2_1",0,"F",this.getResources().getDrawable(R.drawable.sn_2_1),"Test title","Test Description"));
+        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_2_2",1,"P",this.getResources().getDrawable(R.drawable.sn_2_2),"Test title","Test Description"));
+
+        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_3_1",1,"T",this.getResources().getDrawable(R.drawable.sn_3_1),"Test title","Test Description"));
+        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_3_2",0,"0",this.getResources().getDrawable(R.drawable.sn_3_2),"Test title","Test Description"));
+        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_3_3",0,"Z",this.getResources().getDrawable(R.drawable.sn_3_3),"Test title","Test Description"));
+
+        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_4_1",0,"L",this.getResources().getDrawable(R.drawable.sn_4_1),"Test title","Test Description"));
+        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_4_2",0,"P",this.getResources().getDrawable(R.drawable.sn_4_2),"Test title","Test Description"));
+        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_4_3",0,"E",this.getResources().getDrawable(R.drawable.sn_4_3),"Test title","Test Description"));
+        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_4_4",0,"D",this.getResources().getDrawable(R.drawable.sn_4_4),"Test title","Test Description"));
+
+        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_5_1",0,"P",this.getResources().getDrawable(R.drawable.sn_5_1),"Test title","Test Description"));
+        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_5_2",0,"E",this.getResources().getDrawable(R.drawable.sn_5_2),"Test title","Test Description"));
+        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_5_3",0,"C",this.getResources().getDrawable(R.drawable.sn_5_3),"Test title","Test Description"));
+        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_5_4",0,"F",this.getResources().getDrawable(R.drawable.sn_5_4),"Test title","Test Description"));
+        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_5_5",0,"D",this.getResources().getDrawable(R.drawable.sn_5_5),"Test title","Test Description"));
+
+        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_6_1",0,"E",this.getResources().getDrawable(R.drawable.sn_6_1),"Test title","Test Description"));
+        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_6_2",0,"D",this.getResources().getDrawable(R.drawable.sn_6_2),"Test title","Test Description"));
+        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_6_3",0,"F",this.getResources().getDrawable(R.drawable.sn_6_3),"Test title","Test Description"));
+        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_6_4",0,"E",this.getResources().getDrawable(R.drawable.sn_6_4),"Test title","Test Description"));
+        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_6_5",0,"Z",this.getResources().getDrawable(R.drawable.sn_6_5),"Test title","Test Description"));
+        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_6_6",0,"P",this.getResources().getDrawable(R.drawable.sn_6_6),"Test title","Test Description"));
+
+        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_7_1",0,"F",this.getResources().getDrawable(R.drawable.sn_7_1),"Test title","Test Description"));
+        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_7_2",0,"E",this.getResources().getDrawable(R.drawable.sn_7_2),"Test title","Test Description"));
+        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_7_3",0,"L",this.getResources().getDrawable(R.drawable.sn_7_3),"Test title","Test Description"));
+        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_7_4",0,"O",this.getResources().getDrawable(R.drawable.sn_7_4),"Test title","Test Description"));
+        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_7_5",0,"P",this.getResources().getDrawable(R.drawable.sn_7_5),"Test title","Test Description"));
+        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_7_6",0,"Z",this.getResources().getDrawable(R.drawable.sn_7_6),"Test title","Test Description"));
+        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_7_7",0,"D",this.getResources().getDrawable(R.drawable.sn_7_7),"Test title","Test Description"));
+
+        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_8_1",0,"D",this.getResources().getDrawable(R.drawable.sn_8_1),"Test title","Test Description"));
+        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_8_2",0,"E",this.getResources().getDrawable(R.drawable.sn_8_2),"Test title","Test Description"));
+        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_8_3",0,"F",this.getResources().getDrawable(R.drawable.sn_8_3),"Test title","Test Description"));
+        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_8_4",0,"P",this.getResources().getDrawable(R.drawable.sn_8_4),"Test title","Test Description"));
+        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_8_5",0,"O",this.getResources().getDrawable(R.drawable.sn_8_5),"Test title","Test Description"));
+        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_8_6",0,"T",this.getResources().getDrawable(R.drawable.sn_8_6),"Test title","Test Description"));
+        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_8_7",0,"E",this.getResources().getDrawable(R.drawable.sn_8_7),"Test title","Test Description"));
+        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_8_8",0,"C",this.getResources().getDrawable(R.drawable.sn_8_8),"Test title","Test Description"));
+
+    }
+
+    /**
+     * Render test card into the recycle view
+     */
+    private void Render()
     {
         adapter = new TestMyopiaItemAdapter(testMyopiaItemModels,this);
         viewPager = findViewById(R.id.viePager);
@@ -151,7 +228,7 @@ public class TesMyopiaActivity extends AppCompatActivity implements View.OnClick
         colours = colors_temp;
 
 
-       viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 // clear FLAG_TRANSLUCENT_STATUS flag:
@@ -214,72 +291,12 @@ public class TesMyopiaActivity extends AppCompatActivity implements View.OnClick
         });
     }
 
-    @Override
-    public void onClick(View v) {
 
-        switch (v.getId()){
-
-            case R.id.Submit:
-                CreateJSonArray();
-                break;
-                default:
-                    System.out.println("do nothing");
-
-        }
-    }
-
-    private void CreateJSonArray(){
-        JSONObject request = new JSONObject();
-        JsonArray jsonElements = new JsonArray();
-
-        for ( TestMyopiaItemModel testMyopiaItemModel : testMyopiaItemModels)
-        {
-            System.out.println(String.valueOf(testMyopiaItemModels.indexOf(testMyopiaItemModel)+1)
-                    + " Constant : "+ testMyopiaItemModel.getConstant()
-                    + " Answer : "+ testMyopiaItemModel.getAnswer()
-                    + " Result : "+ testMyopiaItemModel.getaBoolean()
-            );
-            ResultObjects = new JsonObject();
-            ResultObjects.addProperty("patient_id",1);
-            ResultObjects.addProperty("optician_id",3);
-            ResultObjects.addProperty("Constant",testMyopiaItemModel.getConstant());
-            ResultObjects.addProperty("Answer",testMyopiaItemModel.getAnswer());
-            ResultObjects.addProperty("Result",testMyopiaItemModel.getaBoolean());
-            jsonElements.add(ResultObjects);
-        }
-
-        try
-        {
-            request.put("Data", jsonElements);
-
-            RequestQueue queue = Volley.newRequestQueue(this);
-            JsonObjectRequest jobReq = new JsonObjectRequest(Request.Method.POST, new HttpRequest().getUri()+"/test/myopia", request,
-                    new Response.Listener<JSONObject>() {
-                        @Override
-                        public void onResponse(JSONObject jsonObject) {
-                            Intent intent = new Intent(getApplicationContext(),ScoreActivity.class);
-                            startActivity(intent);
-                        }
-                    },
-                    new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError volleyError) {
-                            System.out.println(volleyError.getMessage());
-                        }
-                    });
-
-            queue.add(jobReq);
-
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-        }
-
-
-    }
-
-    private void readAllPages(){
+    /**
+     * Read All List Object and update with results
+     */
+    private void readAllPages()
+    {
         for (int i = 0; i < viewPager.getChildCount(); i++)
         {
             View v = viewPager.getChildAt(i);
@@ -288,7 +305,6 @@ public class TesMyopiaActivity extends AppCompatActivity implements View.OnClick
             TextView Constant = (TextView) v.findViewById(R.id.CONSTANT);
             TextView Answer = (TextView) v.findViewById(R.id.ANSWER);
 
-            String stringConstant = (String) Constant.getText();
             String stringAnwer = (String) Answer.getText();
 
             System.out.println( e.getText()+" = "+ stringAnwer );
@@ -310,11 +326,9 @@ public class TesMyopiaActivity extends AppCompatActivity implements View.OnClick
                 }
             }
 
-
-
-
         }
     }
+
 
 
 }

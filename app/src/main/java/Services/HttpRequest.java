@@ -9,7 +9,9 @@ import com.android.volley.toolbox.StringRequest;
 public class HttpRequest {
 
     private RequestQueue queue = null;
-    private String url ="http://192.168.1.4:3000/api";
+    private String url ="http://opticare.9xlabs.com/api";
+    
+//    private String url ="http://192.168.1.7:3000/api";
 
     public HttpRequest(){}
 

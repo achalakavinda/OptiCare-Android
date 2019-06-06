@@ -53,8 +53,10 @@ public class TestHyperpiaItemAdapter extends PagerAdapter {
         inputField = view.findViewById(R.id.inputField);
 
         Title.setText(models.get(postion).getTtile());
+
         inputField.setText(models.get(postion).getAnswer().toUpperCase());
         ANSWER .setText(models.get(postion).getAnswer());
+
         Constant.setText(models.get(postion).getConstant());
 
 

@@ -9,6 +9,10 @@
     <color name="gradStart">#19AA8B</color>
     <color name="gradStop">#23A7D8</color>
 
+    <color name="graylight">#fafafa</color>
+    <color name="starblue">#09c6df</color>
+    <color name="endblue">#09c6df</color>
+
     <color name="color0">#23A7D8</color>
     <color name="color1">#424543</color>
     <color name="color2">#7e455e</color>

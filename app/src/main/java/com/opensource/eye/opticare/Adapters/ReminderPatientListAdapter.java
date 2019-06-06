@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -18,39 +17,31 @@ import java.util.List;
 
 public class ReminderPatientListAdapter extends RecyclerView.Adapter<ReminderPatientListAdapter.ViewHolder> {
 
-    public EventListListener eventListListener;
     private List<ReminderPatientModel> values;
 
-    // Provide a reference to the views for each data item
-    // Complex data items may need more than one view per item, and
-    // you provide access to all the views for a data item in a view holder
+
     public class ViewHolder extends RecyclerView.ViewHolder {
-        // each data item is just a string in this case
 
         public View layout;
-        //custom view variables
-        public LinearLayout linearLayoutPostItemCard;
-
-        public TextView time;
-        public TextView description;
-
-
-        public ImageButton imageButtonDelete;
+        LinearLayout linearLayoutPostItemCard;
+        TextView textDate;
+        TextView textType;
+        TextView textStatus;
+        TextView textOptician;
+        TextView textNote;
 
         public ViewHolder(View v) {
             super(v);
             layout = v;
+            linearLayoutPostItemCard = v.findViewById(R.id.EventItemCard);
 
-            //custom view variable initialize
-            linearLayoutPostItemCard = (LinearLayout) v.findViewById(R.id.EventItemCard);
-
-            time = (TextView) v.findViewById(R.id.time);
-            description = (TextView) v.findViewById(R.id.description);
-            imageButtonDelete = (ImageButton) v.findViewById(R.id.deleteBtn);
+            textDate = v.findViewById(R.id.textDate);
+            textType = v.findViewById(R.id.textType);
+            textStatus = v.findViewById(R.id.textStatus);
+            textOptician = v.findViewById(R.id.textOptician);
+            textNote = v.findViewById(R.id.textNote);
         }
     }
-
-
 
     public void add(int position, ReminderPatientModel item) {
         values.add(position, item);
@@ -63,7 +54,8 @@ public class ReminderPatientListAdapter extends RecyclerView.Adapter<ReminderPat
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public ReminderPatientListAdapter(List<ReminderPatientModel> myDataset) {
+    public ReminderPatientListAdapter(List<ReminderPatientModel> myDataset)
+    {
         values = myDataset;
     }
 
@@ -72,58 +64,39 @@ public class ReminderPatientListAdapter extends RecyclerView.Adapter<ReminderPat
     @Override
     public ReminderPatientListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
                                                           int viewType) {
-        // create a new view
         LayoutInflater inflater = LayoutInflater.from(
                 parent.getContext());
+
         View v = inflater.inflate(R.layout.recycler_patient_reminder_item, parent, false);
-
-
-
-        // set the view's size, margins, paddings and layout parameters
         ViewHolder vh = new ViewHolder(v);
+
         return vh;
     }
 
     private int lastPosition = -1;
-    // Replace the contents of a view (invoked by the layout manager)
+
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position)
+    {
 
+        holder.textDate.setText(values.get(position).getDate());
+        holder.textType.setText(values.get(position).getType());
+        holder.textStatus.setText(values.get(position).getStatus());
 
-
-        holder.time.setText(values.get(position).time);
-        holder.description.setText(values.get(position).description);
-
-
+        holder.textOptician.setText(values.get(position).getPatient_name());
+        holder.textNote.setText(values.get(position).getNote());
 
         Animation animation = AnimationUtils.loadAnimation(holder.itemView.getContext(), (position > lastPosition) ? R.anim.up_from_bottom : R.anim.down_from_top);
+
         holder.itemView.startAnimation(animation);
         lastPosition = position;
-
 
         holder.linearLayoutPostItemCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 switch (v.getId()){
                     case R.id.EventItemCard:
-                        System.out.println(values.get(position).description.toString());
-                        eventListListener.valuePass(values.get(position));
-                        break;
-                    default:
-                        return;
-                }
-            }
-        });
-
-        holder.imageButtonDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                switch (v.getId()){
-                    case R.id.deleteBtn:
-                        System.out.println(values.get(position).description.toString());
-                        eventListListener.deleteRecord(values.get(position));
+//                        System.out.println(values.get(position).description);
                         break;
                     default:
                         return;
@@ -147,15 +120,6 @@ public class ReminderPatientListAdapter extends RecyclerView.Adapter<ReminderPat
     @Override
     public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
         super.onAttachedToRecyclerView(recyclerView);
-        try{
-            eventListListener = (EventListListener) recyclerView.getContext();
-        }catch (ClassCastException e){
-            System.out.println(e.getMessage());
-        }
-    }
 
-    public interface EventListListener{
-        void valuePass(ReminderPatientModel eventDesc);
-        void deleteRecord(ReminderPatientModel eventModel);
     }
 }

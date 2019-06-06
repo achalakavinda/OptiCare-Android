@@ -6,10 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.nightonke.boommenu.BoomButtons.SimpleCircleButton;
 import com.nightonke.boommenu.BoomMenuButton;
 import com.opensource.eye.opticare.Configs.Config;
+
+import Models.UserStatic;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -22,6 +25,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private LinearLayout linearLayoutNearBy;
     private LinearLayout linearLayoutReminder;
     private LinearLayout linearLayoutProfile;
+
+    private TextView textUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +48,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         linearLayoutNearBy.setOnClickListener(this);
         linearLayoutReminder.setOnClickListener(this);
         linearLayoutProfile.setOnClickListener(this);
+
+        textUser = findViewById(R.id.textUser);
+        textUser.setText("Hi " +UserStatic.getUsername().toUpperCase());
+
     }
 
 
@@ -63,6 +72,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 intent = new Intent(this,TutorialActivity.class);
                 bundle.putInt("TYPE_CONST",Config.HYPEROPIA_ACTIVTY);
                 intent.putExtras(bundle);
+                startActivity(intent);
+                break;
+
+            case R.id.linearLayoutProfile:
+                intent = new Intent(this,ProfileActivity.class);
                 startActivity(intent);
                 break;
 
