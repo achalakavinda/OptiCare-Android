@@ -49,27 +49,44 @@ public class TutorialActivity extends AppCompatActivity implements View .OnClick
         switch (ActityInteger){
             case Config.MYOPIA_ACTIVTY:
 
-                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"MYOPIA_ACTIVTY","Brocher"));
-                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"MYOPIA_ACTIVTY X","Brocher sad asd dsa "));
-                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"MYOPIA_ACTIVTY X","Brocher sad asd dsa "));
-                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"MYOPIA_ACTIVTY X","Brocher sad asd dsa "));
-                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"MYOPIA_ACTIVTY X","Brocher sad asd dsa "));
-                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"MYOPIA_ACTIVTY X","Brocher sad asd dsa "));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"MYOPIA Test","If you notice that you cannot see well close-up or from a distance, then you probably suffer from defective vision"));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"MYOPIA Test","If you are short-sighted, you can see well close-up without spectacles, but in the distance everything is blurred and unclear. The most frequent cause is a longer eyeball (length myopia) meaning that the image emerges before the retina and therefore cannot be seen sharply."));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"MYOPIA Test","Test Your Vision"));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"MYOPIA Test","Position yourself approximately 1 metre from your mobile screen,"));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"MYOPIA Test","When you click \"Start\", you will be shown a latter. In the field below, type the letters as you seen, without spaces."));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"Important Note","A self-test does not replace the professional eye test with an optometrist or ophthalmologist."));
                 Render();
                 break;
             case Config.HYPEROPIA_ACTIVTY:
 
-                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"HYPEROPIA_ACTIVTY","Brocher"));
-                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"HYPEROPIA_ACTIVTY X","Brocher sad asd dsa "));
-                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"HYPEROPIA_ACTIVTY X","Brocher sad asd dsa "));
-                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"HYPEROPIA_ACTIVTY X","Brocher sad asd dsa "));
-                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"HYPEROPIA_ACTIVTY X","Brocher sad asd dsa "));
-                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"HYPEROPIA_ACTIVTY X","Brocher sad asd dsa "));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"HYPEROPIA Test","If you notice that you cannot see well close-up or from a distance, then you probably suffer from defective vision."));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"HYPEROPIA Test","Long-sightedness occurs in most cases from a shorter eyeball (length hyperopia). The image emerges behind the retina and is not shown sharply. For distance vision this can still be balanced relatively well for some time, but close-up vision is not clear."));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"HYPEROPIA Test","Test Your Vision"));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"HYPEROPIA Test","Secure the sheet on the wall at eye level and move back 4 metres (5 steps).\n"));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"HYPEROPIA Test","When you click \"Start\", you will be shown a line number. In the field below, type the letters as you seen in the relevant line, without spaces."));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"Important Note","A self-test does not replace the professional eye test with an optometrist or ophthalmologist."));
                 Render();
                 break;
 
             case Config.ASTIGMATISM_ACTIVTY:
-                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"Asty_ACTIVTY","Brocher"));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"ASTIMATISM Test","Curved means that the cornea is not evenly shaped. Mild astigmatism is quite common."));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"ASTIMATISM Test","Approx. 70% of all spectacle wearers are astigmatic. This means they have a corneal curvature."));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"ASTIMATISM Test","The different deformations of the cornea mean that the light is refracted differently and as a result, for example, round objects appear oval due to the distortion. This also explains the synonym \"astigmatism\"."));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"ASTIMATISM Test","Test for corneal curvature"));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"ASTIMATISM Test","A corneal curvature (astigmatism) occurs when a point is depicted as a dash on the retina. Do the self-test now!"));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"ASTIMATISM Test","Look at the circles one after the other and observe the lines"));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"Important","Do this first with each eye, then with two eyes together. You can then do the test with or without spectacles."));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"Important","See clear, black lines in all circles ?"));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"Results","If the lines appear blurred or unclear in one or several directions, this may indicate eye irregularities."));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"Results","In this case you should visit your optician or ophthalmologist. If you also detect the differences of the lines with your spectacles, you should have your spectacles checked because an uncorrected astigmatism reduces your visual acuity."));
+                Render();
+                break;
+
+            case Config.PRESBYOPIA_ACTIVITY:
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"Presbyopia Test","When your arms are too short to read: Presbyopia is the most frequent cause of defective vision as we get older."));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"Presbyopia Test","Our eyesight in the near area deteriorates as we get older and books or letters have to be read with an extended arm. The ageing process of the eye and the accompanying decreasing elasticity of the eye lens are responsible.\n"));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"Presbyopia Test","Test for Presbyopia"));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"Presbyopia Test","Test"));
                 Render();
                 break;
         }
