@@ -123,11 +123,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     try {
                         Boolean status = response.getBoolean("status");
                         String successMsg = response.getString("message");
-                        Toast.makeText(getApplicationContext(),successMsg,Toast.LENGTH_LONG).show();
-
-                        JSONObject userJson = response.getJSONObject("user");
 
                         if(status){
+                            JSONObject userJson = response.getJSONObject("user");
 
                             UserStatic.setUserId(userJson.getString("id"));
                             UserStatic.setUsername(userJson.getString("name"));
