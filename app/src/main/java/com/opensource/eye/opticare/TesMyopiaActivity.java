@@ -30,6 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import Models.UserStatic;
 import Services.HttpRequest;
 
 public class TesMyopiaActivity extends AppCompatActivity implements View.OnClickListener {
@@ -113,8 +114,8 @@ public class TesMyopiaActivity extends AppCompatActivity implements View.OnClick
             );
 
             ResultObjects = new JsonObject();
-            ResultObjects.addProperty("patient_id",1);
-            ResultObjects.addProperty("optician_id",3);
+            ResultObjects.addProperty("patient_id", UserStatic.getUserId());
+            ResultObjects.addProperty("optician_id",UserStatic.getOptician_id());
             ResultObjects.addProperty("Constant",testMyopiaItemModel.getConstant());
             ResultObjects.addProperty("Answer",testMyopiaItemModel.getAnswer());
             ResultObjects.addProperty("Result",testMyopiaItemModel.getaBoolean());

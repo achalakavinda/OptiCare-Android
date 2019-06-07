@@ -126,13 +126,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         if(status){
                             JSONObject userJson = response.getJSONObject("user");
-
                             UserStatic.setUserId(userJson.getString("id"));
                             UserStatic.setUsername(userJson.getString("name"));
                             UserStatic.setEmail(userJson.getString("email"));
                             UserStatic.setUserType(userJson.getString("type").toUpperCase());
                             UserStatic.setUserType(userJson.getString("type").toUpperCase());
                             UserStatic.setIsActive(userJson.getString("is_active").toUpperCase());
+                            UserStatic.setOptician_id(userJson.getString("optician_id").toUpperCase());
 
                             Toast.makeText(getApplicationContext(),successMsg,Toast.LENGTH_LONG).show();
                             queue.stop();

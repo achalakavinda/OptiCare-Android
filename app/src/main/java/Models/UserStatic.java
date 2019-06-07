@@ -7,6 +7,8 @@ public class UserStatic {
     private static String email="";
     private static String userType="";
     private static String isActive="";
+    private static String optician_id="";
+
 
 
     public static String getUserId() {
@@ -49,6 +51,12 @@ public class UserStatic {
         UserStatic.isActive = isActive;
     }
 
+    public static String getOptician_id() {
+        return optician_id;
+    }
 
+    public static void setOptician_id(String optician_id) {
+        UserStatic.optician_id = optician_id;
+    }
 
 }

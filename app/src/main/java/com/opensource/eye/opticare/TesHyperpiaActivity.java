@@ -31,6 +31,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import Models.UserStatic;
 import Services.HttpRequest;
 
 public class TesHyperpiaActivity extends AppCompatActivity implements View.OnClickListener {
@@ -112,8 +113,8 @@ public class TesHyperpiaActivity extends AppCompatActivity implements View.OnCli
             );
 
             ResultObjects = new JsonObject();
-            ResultObjects.addProperty("patient_id",1);
-            ResultObjects.addProperty("optician_id",3);
+            ResultObjects.addProperty("patient_id", UserStatic.getUserId());
+            ResultObjects.addProperty("optician_id",UserStatic.getOptician_id());
             ResultObjects.addProperty("Constant",testHyperpiaItemModel.getConstant());
             ResultObjects.addProperty("Answer",testHyperpiaItemModel.getAnswer());
             ResultObjects.addProperty("Result",testHyperpiaItemModel.getaBoolean());
