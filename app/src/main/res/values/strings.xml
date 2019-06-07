@@ -4,4 +4,6 @@
     <string name="title_activity_acuity_test">AcuityTestActivity</string>
     <string name="title_activity_tutorial">TutorialActivity</string>
     <string name="title_activity_map">Map</string>
+    <string name="title_activity_test_astigmatism">TestAstigmatism</string>
+    <string name="title_activity_test_presbyopia">TestPresbyopia</string>
 </resources>

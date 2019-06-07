@@ -13,6 +13,7 @@ import android.widget.Button;
 
 import com.opensource.eye.opticare.Adapters.TutorialItemsAdapter;
 import com.opensource.eye.opticare.Configs.Config;
+import com.opensource.eye.opticare.Models.TestAstigmatism;
 import com.opensource.eye.opticare.Models.TutorialItemModel;
 
 import java.util.ArrayList;
@@ -69,24 +70,27 @@ public class TutorialActivity extends AppCompatActivity implements View .OnClick
                 break;
 
             case Config.ASTIGMATISM_ACTIVTY:
-                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"ASTIMATISM Test","Curved means that the cornea is not evenly shaped. Mild astigmatism is quite common."));
-                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"ASTIMATISM Test","Approx. 70% of all spectacle wearers are astigmatic. This means they have a corneal curvature."));
-                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"ASTIMATISM Test","The different deformations of the cornea mean that the light is refracted differently and as a result, for example, round objects appear oval due to the distortion. This also explains the synonym \"astigmatism\"."));
-                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"ASTIMATISM Test","Test for corneal curvature"));
-                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"ASTIMATISM Test","A corneal curvature (astigmatism) occurs when a point is depicted as a dash on the retina. Do the self-test now!"));
-                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"ASTIMATISM Test","Look at the circles one after the other and observe the lines"));
-                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"Important","Do this first with each eye, then with two eyes together. You can then do the test with or without spectacles."));
-                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"Important","See clear, black lines in all circles ?"));
-                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"Results","If the lines appear blurred or unclear in one or several directions, this may indicate eye irregularities."));
-                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"Results","In this case you should visit your optician or ophthalmologist. If you also detect the differences of the lines with your spectacles, you should have your spectacles checked because an uncorrected astigmatism reduces your visual acuity."));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.astigmaticeye,"ASTIMATISM Test","Curved means that the cornea is not evenly shaped. Mild astigmatism is quite common."));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.normalvs,"ASTIMATISM Test","Approx. 70% of all spectacle wearers are astigmatic. This means they have a corneal curvature."));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.astigmatismview,"ASTIMATISM Test","The different deformations of the cornea mean that the light is refracted differently and as a result, for example, round objects appear oval due to the distortion. This also explains the synonym \"astigmatism\"."));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.test,"ASTIMATISM Test","Test for corneal curvature"));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.asti,"ASTIMATISM Test","Look at the circles one after the other and observe the lines"));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.oneeye,"Important","Do this first with each eye, then with two eyes together. You can then do the test with or without spectacles."));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.cornealcurvature,"Important","See clear, black lines in all circles ?"));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.opt,"Results","If the lines appear blurred or unclear in one or several directions, this may indicate eye irregularities."));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.opt,"Results","In this case you should visit your optician or ophthalmologist. If you also detect the differences of the lines with your spectacles, you should have your spectacles checked because an uncorrected astigmatism reduces your visual acuity."));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.opt,"Important Note","A self-test does not replace the professional eye test with an optometrist or ophthalmologist."));
+
                 Render();
                 break;
 
-            case Config.PRESBYOPIA_ACTIVITY:
-                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"Presbyopia Test","When your arms are too short to read: Presbyopia is the most frequent cause of defective vision as we get older."));
-                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"Presbyopia Test","Our eyesight in the near area deteriorates as we get older and books or letters have to be read with an extended arm. The ageing process of the eye and the accompanying decreasing elasticity of the eye lens are responsible.\n"));
-                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"Presbyopia Test","Test for Presbyopia"));
-                tutorialItemModels.add(new TutorialItemModel(R.drawable.brochure,"Presbyopia Test","Test"));
+            case Config.PRESBYOPIA_ACTIVTY:
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.presbyope,"Presbyopia Test","When your arms are too short to read: Presbyopia is the most frequent cause of defective vision as we get older."));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.pres,"Presbyopia Test","Our eyesight in the near area deteriorates as we get older and books or letters have to be read with an extended arm. The ageing process of the eye and the accompanying decreasing elasticity of the eye lens are responsible.\n"));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.test,"Presbyopia Test","Test for Presbyopia"));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.test,"Presbyopia Test","Test"));
+                tutorialItemModels.add(new TutorialItemModel(R.drawable.opt,"Important Note","A self-test does not replace the professional eye test with an optometrist or ophthalmologist."));
+
                 Render();
                 break;
         }
@@ -174,6 +178,18 @@ public class TutorialActivity extends AppCompatActivity implements View .OnClick
                             intent = new Intent(this,TesHyperpiaActivity.class);
                             startActivity(intent);
                             break;
+
+                        case Config.ASTIGMATISM_ACTIVTY:
+                        intent = new Intent(this, TestAstigmatism.class);
+                        startActivity(intent);
+                        break;
+
+                        case Config.PRESBYOPIA_ACTIVTY:
+                        intent = new Intent(this,TestAstigmatism.class);
+                        startActivity(intent);
+                        break;
+
+
                 }
 
                 break;

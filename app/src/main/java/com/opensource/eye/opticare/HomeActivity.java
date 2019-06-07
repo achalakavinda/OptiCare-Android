@@ -11,6 +11,8 @@ import android.widget.TextView;
 import com.nightonke.boommenu.BoomButtons.SimpleCircleButton;
 import com.nightonke.boommenu.BoomMenuButton;
 import com.opensource.eye.opticare.Configs.Config;
+import com.opensource.eye.opticare.Models.TestAstigmatism;
+import com.opensource.eye.opticare.Models.TestPresbyopia;
 
 import Models.UserStatic;
 
@@ -75,6 +77,21 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
 
+            case R.id.linearLayoutAstigmatism:
+                intent = new Intent(this, TutorialActivity.class);
+                bundle.putInt("TYPE_CONST",Config.ASTIGMATISM_ACTIVTY);
+                intent.putExtras(bundle);
+                startActivity(intent);
+                break;
+
+            case R.id.linearLayoutPresbyopia:
+                intent = new Intent(this, TutorialActivity.class);
+                bundle.putInt("TYPE_CONST",Config.PRESBYOPIA_ACTIVTY);
+                intent.putExtras(bundle);
+                startActivity(intent);
+                break;
+
+
             case R.id.linearLayoutProfile:
                 intent = new Intent(this,ProfileActivity.class);
                 startActivity(intent);
@@ -89,6 +106,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 intent = new Intent(this,MapActivity.class);
                 startActivity(intent);
                 break;
+
+
         }
 
     }
