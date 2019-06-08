@@ -1,22 +1,24 @@
 package com.opensource.eye.opticare.Models;
 
+import android.graphics.drawable.Drawable;
+
 public class TutorialItemModel {
 
-    private int image;
+    private Drawable image;
     private String titile;
     private String desc;
 
-    public TutorialItemModel(int image, String titile, String desc) {
+    public TutorialItemModel(Drawable image, String titile, String desc) {
         this.image = image;
         this.titile = titile;
         this.desc = desc;
     }
 
-    public int getImage() {
+    public Drawable getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(Drawable image) {
         this.image = image;
     }
 

@@ -44,12 +44,14 @@ public class TutorialItemsAdapter extends PagerAdapter {
 
         ImageView imageView;
         TextView textViewTitle, textViewDesc;
+        imageView = view.findViewById(R.id.image);
 
         textViewTitle = view.findViewById(R.id.title);
         textViewDesc = view.findViewById(R.id.desc);
 
         textViewTitle.setText(models.get(postion).getTitile());
         textViewDesc.setText(models.get(postion).getDesc());
+        imageView.setImageDrawable(models.get(postion).getImage());
 
         return view;
     }

@@ -86,17 +86,18 @@ public class MapActivity extends FragmentActivity implements GoogleMap.OnInfoWin
 
                     Toast.makeText(getApplicationContext(),"Loading......",Toast.LENGTH_LONG).show();
 
+
                     try {
 
                     JSONArray jsonArray = response.getJSONArray("opticians");
-
+                        System.out.println(jsonArray.toString());
                         for (int x = 0; x < jsonArray.length(); x++)
                         {
                             Toast.makeText(getApplicationContext(),"test value "+String.valueOf(x),Toast.LENGTH_LONG).show();
 
-                            double lat = jsonArray.getJSONObject(x).getDouble("lat");
-                            double lng = jsonArray.getJSONObject(x).getDouble("lng");
-                            String title = jsonArray.getJSONObject(x).getString("name");
+                            double lat = jsonArray.getJSONObject(x).getDouble("latitude");
+                            double lng = jsonArray.getJSONObject(x).getDouble("longitude");
+                            String title = jsonArray.getJSONObject(x).getString("shop_name");
 
                             LatLng Position = new LatLng(lat, lng);
 
