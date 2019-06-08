@@ -50,22 +50,22 @@ public class TutorialActivity extends AppCompatActivity implements View .OnClick
         switch (ActityInteger){
             case Config.MYOPIA_ACTIVTY:
 
-                tutorialItemModels.add(new TutorialItemModel(getResources().getDrawable(R.drawable.brochure),"MYOPIA Test","If you notice that you cannot see well close-up or from a distance, then you probably suffer from defective vision"));
-                tutorialItemModels.add(new TutorialItemModel(getResources().getDrawable(R.drawable.brochure),"MYOPIA Test","If you are short-sighted, you can see well close-up without spectacles, but in the distance everything is blurred and unclear. The most frequent cause is a longer eyeball (length myopia) meaning that the image emerges before the retina and therefore cannot be seen sharply."));
-                tutorialItemModels.add(new TutorialItemModel(getResources().getDrawable(R.drawable.brochure),"MYOPIA Test","Test Your Vision"));
-                tutorialItemModels.add(new TutorialItemModel(getResources().getDrawable(R.drawable.brochure),"MYOPIA Test","Position yourself approximately 1 metre from your mobile screen,"));
-                tutorialItemModels.add(new TutorialItemModel(getResources().getDrawable(R.drawable.brochure),"MYOPIA Test","When you click \"Start\", you will be shown a latter. In the field below, type the letters as you seen, without spaces."));
-                tutorialItemModels.add(new TutorialItemModel(getResources().getDrawable(R.drawable.brochure),"Important Note","A self-test does not replace the professional eye test with an optometrist or ophthalmologist."));
+                tutorialItemModels.add(new TutorialItemModel(getResources().getDrawable(R.drawable.myopiatwo),"MYOPIA Test","If you notice that you cannot see well close-up or from a distance, then you probably suffer from defective vision"));
+                tutorialItemModels.add(new TutorialItemModel(getResources().getDrawable(R.drawable.myopiatwo),"MYOPIA Test","If you are short-sighted, you can see well close-up without spectacles, but in the distance everything is blurred and unclear. The most frequent cause is a longer eyeball (length myopia) meaning that the image emerges before the retina and therefore cannot be seen sharply."));
+                tutorialItemModels.add(new TutorialItemModel(getResources().getDrawable(R.drawable.test),"MYOPIA Test","Test Your Vision"));
+                tutorialItemModels.add(new TutorialItemModel(getResources().getDrawable(R.drawable.myopiathree),"MYOPIA Test","Position yourself approximately 1 metre from your mobile screen,"));
+                tutorialItemModels.add(new TutorialItemModel(getResources().getDrawable(R.drawable.opt),"MYOPIA Test","When you click \"Start\", you will be shown a latter. In the field below, type the letters as you seen, without spaces."));
+                tutorialItemModels.add(new TutorialItemModel(getResources().getDrawable(R.drawable.opt),"Important Note","A self-test does not replace the professional eye test with an optometrist or ophthalmologist."));
                 Render();
                 break;
             case Config.HYPEROPIA_ACTIVTY:
 
-                tutorialItemModels.add(new TutorialItemModel(getResources().getDrawable(R.drawable.brochure),"HYPEROPIA Test","If you notice that you cannot see well close-up or from a distance, then you probably suffer from defective vision."));
-                tutorialItemModels.add(new TutorialItemModel(getResources().getDrawable(R.drawable.brochure),"HYPEROPIA Test","Long-sightedness occurs in most cases from a shorter eyeball (length hyperopia). The image emerges behind the retina and is not shown sharply. For distance vision this can still be balanced relatively well for some time, but close-up vision is not clear."));
-                tutorialItemModels.add(new TutorialItemModel(getResources().getDrawable(R.drawable.brochure),"HYPEROPIA Test","Test Your Vision"));
-                tutorialItemModels.add(new TutorialItemModel(getResources().getDrawable(R.drawable.brochure),"HYPEROPIA Test","Secure the sheet on the wall at eye level and move back 4 metres (5 steps).\n"));
-                tutorialItemModels.add(new TutorialItemModel(getResources().getDrawable(R.drawable.brochure),"HYPEROPIA Test","When you click \"Start\", you will be shown a line number. In the field below, type the letters as you seen in the relevant line, without spaces."));
-                tutorialItemModels.add(new TutorialItemModel(getResources().getDrawable(R.drawable.brochure),"Important Note","A self-test does not replace the professional eye test with an optometrist or ophthalmologist."));
+                tutorialItemModels.add(new TutorialItemModel(getResources().getDrawable(R.drawable.hyperopiaone),"HYPEROPIA Test","If you notice that you cannot see well close-up or from a distance, then you probably suffer from defective vision."));
+                tutorialItemModels.add(new TutorialItemModel(getResources().getDrawable(R.drawable.hyperopia),"HYPEROPIA Test","Long-sightedness occurs in most cases from a shorter eyeball (length hyperopia). The image emerges behind the retina and is not shown sharply. For distance vision this can still be balanced relatively well for some time, but close-up vision is not clear."));
+                tutorialItemModels.add(new TutorialItemModel(getResources().getDrawable(R.drawable.test),"HYPEROPIA Test","Test Your Vision"));
+                tutorialItemModels.add(new TutorialItemModel(getResources().getDrawable(R.drawable.hyperopiatwo),"HYPEROPIA Test","Secure the sheet on the wall at eye level and move back 4 metres (5 steps).\n"));
+                tutorialItemModels.add(new TutorialItemModel(getResources().getDrawable(R.drawable.hyperopiathree),"HYPEROPIA Test","When you click \"Start\", you will be shown a line number. In the field below, type the letters as you seen in the relevant line, without spaces."));
+                tutorialItemModels.add(new TutorialItemModel(getResources().getDrawable(R.drawable.opt),"Important Note","A self-test does not replace the professional eye test with an optometrist or ophthalmologist."));
                 Render();
                 break;
 
@@ -85,8 +85,8 @@ public class TutorialActivity extends AppCompatActivity implements View .OnClick
                 break;
 
             case Config.PRESBYOPIA_ACTIVTY:
-                tutorialItemModels.add(new TutorialItemModel(getResources().getDrawable(R.drawable.presbyope),"Presbyopia Test","When your arms are too short to read: Presbyopia is the most frequent cause of defective vision as we get older."));
-                tutorialItemModels.add(new TutorialItemModel(getResources().getDrawable(R.drawable.pres),"Presbyopia Test","Our eyesight in the near area deteriorates as we get older and books or letters have to be read with an extended arm. The ageing process of the eye and the accompanying decreasing elasticity of the eye lens are responsible.\n"));
+                tutorialItemModels.add(new TutorialItemModel(getResources().getDrawable(R.drawable.presbynew),"Presbyopia Test","When your arms are too short to read: Presbyopia is the most frequent cause of defective vision as we get older."));
+                tutorialItemModels.add(new TutorialItemModel(getResources().getDrawable(R.drawable.presbynewnew),"Presbyopia Test","Our eyesight in the near area deteriorates as we get older and books or letters have to be read with an extended arm. The ageing process of the eye and the accompanying decreasing elasticity of the eye lens are responsible.\n"));
                 tutorialItemModels.add(new TutorialItemModel(getResources().getDrawable(R.drawable.test),"Presbyopia Test","Test for Presbyopia"));
                 tutorialItemModels.add(new TutorialItemModel(getResources().getDrawable(R.drawable.test),"Presbyopia Test","Test"));
                 tutorialItemModels.add(new TutorialItemModel(getResources().getDrawable(R.drawable.opt),"Important Note","A self-test does not replace the professional eye test with an optometrist or ophthalmologist."));
