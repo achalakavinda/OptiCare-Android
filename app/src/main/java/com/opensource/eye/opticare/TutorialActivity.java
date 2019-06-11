@@ -14,6 +14,7 @@ import android.widget.Button;
 import com.opensource.eye.opticare.Adapters.TutorialItemsAdapter;
 import com.opensource.eye.opticare.Configs.Config;
 import com.opensource.eye.opticare.Models.TestAstigmatism;
+import com.opensource.eye.opticare.Models.TestPresbyopia;
 import com.opensource.eye.opticare.Models.TutorialItemModel;
 
 import java.util.ArrayList;
@@ -185,7 +186,7 @@ public class TutorialActivity extends AppCompatActivity implements View .OnClick
                         break;
 
                         case Config.PRESBYOPIA_ACTIVTY:
-                        intent = new Intent(this,TestAstigmatism.class);
+                        intent = new Intent(this, TestPresbyopia.class);
                         startActivity(intent);
                         break;
 
