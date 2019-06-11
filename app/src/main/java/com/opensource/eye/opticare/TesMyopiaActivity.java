@@ -164,8 +164,8 @@ public class TesMyopiaActivity extends AppCompatActivity implements View.OnClick
         testMyopiaItemModels.add(new TestMyopiaItemModel("sn_2_2",1,"P",this.getResources().getDrawable(R.drawable.sn_2_2),"Test title","Test Description"));
 
         testMyopiaItemModels.add(new TestMyopiaItemModel("sn_3_1",1,"T",this.getResources().getDrawable(R.drawable.sn_3_1),"Test title","Test Description"));
-        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_3_2",0,"0",this.getResources().getDrawable(R.drawable.sn_3_2),"Test title","Test Description"));
-        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_3_3",0,"Z",this.getResources().getDrawable(R.drawable.sn_3_3),"Test title","Test Description"));
+        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_3_2",2,"0",this.getResources().getDrawable(R.drawable.sn_3_2),"Test title","Test Description"));
+        testMyopiaItemModels.add(new TestMyopiaItemModel("sn_3_3",2,"Z",this.getResources().getDrawable(R.drawable.sn_3_3),"Test title","Test Description"));
 
         testMyopiaItemModels.add(new TestMyopiaItemModel("sn_4_1",0,"L",this.getResources().getDrawable(R.drawable.sn_4_1),"Test title","Test Description"));
         testMyopiaItemModels.add(new TestMyopiaItemModel("sn_4_2",0,"P",this.getResources().getDrawable(R.drawable.sn_4_2),"Test title","Test Description"));
@@ -312,6 +312,7 @@ public class TesMyopiaActivity extends AppCompatActivity implements View.OnClick
 
             for ( TestMyopiaItemModel testMyopiaItemModel : testMyopiaItemModels)
             {
+
                 if( testMyopiaItemModel.getConstant().toString().equals(Constant.getText().toString()) ){
 
                     if(e.getText().toString().toUpperCase().equals(stringAnwer.toString().toUpperCase())){
