@@ -67,11 +67,13 @@ public class PatientReminderActivity extends AppCompatActivity {
 
                         JSONArray jsonArray = response.getJSONArray("checkup");
 
+                        System.out.println(jsonArray.toString());
+
                         int run = 0;
                         for (int x = 0; x < jsonArray.length(); x++)
                         {
                             run = x;
-                            ReminderPatientModel Model = new ReminderPatientModel( jsonArray.getJSONObject(x).getString("id"),jsonArray.getJSONObject(x).getString("optician_id"),jsonArray.getJSONObject(x).getString("optician_name"),jsonArray.getJSONObject(x).getString("patient_name"),jsonArray.getJSONObject(x).getString("patient_id"),jsonArray.getJSONObject(x).getString("date"),jsonArray.getJSONObject(x).getString("type").toUpperCase(), jsonArray.getJSONObject(x).getString("isMobile"), jsonArray.getJSONObject(x).getString("status").toUpperCase(),"empty",true);
+                            ReminderPatientModel Model = new ReminderPatientModel( jsonArray.getJSONObject(x).getString("id"),jsonArray.getJSONObject(x).getString("optician_id"),jsonArray.getJSONObject(x).getString("optician_name"),jsonArray.getJSONObject(x).getString("patient_name"),jsonArray.getJSONObject(x).getString("patient_id"),jsonArray.getJSONObject(x).getString("date"),jsonArray.getJSONObject(x).getString("type").toUpperCase(), jsonArray.getJSONObject(x).getString("isMobile"), jsonArray.getJSONObject(x).getString("status").toUpperCase(),jsonArray.getJSONObject(x).getString("note"),true );
                             input.add(Model);
                         }
 
